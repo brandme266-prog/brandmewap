@@ -65,6 +65,9 @@ export default {
         return this.handleGetImage(imageMatch[1], env, corsHeaders);
       }
 
+      if (env.ASSETS) {
+        return env.ASSETS.fetch(request);
+      }
       return new Response("Not Found", { status: 404, headers: corsHeaders });
     } catch (err) {
       return new Response(JSON.stringify({ error: err.message }), {

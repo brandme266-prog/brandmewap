@@ -1,7 +1,10 @@
 name = "brandme-api"
 main = "src/worker/index.js"
-compatibility_date = "2024-09-25"
-assets = { directory = "out" }
+compatibility_date = "2024-12-01"
+
+[assets]
+directory = "./out"
+binding = "ASSETS"
 
 [vars]
 ADMIN_PASSWORD = "brandme-admin-2024"

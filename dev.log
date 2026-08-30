@@ -23043,3 +23043,6 @@ https://react.dev/link/hydration-mismatch
 ✓ Running next.config.mjs took 151ms
 
 ✓ Finished filesystem cache database compaction in 32.8s
+ GET /online-store 200 in 990ms (next.js: 649ms, application-code: 341ms)
+ GET / 200 in 616ms (next.js: 272ms, application-code: 344ms)
+ GET / 200 in 448ms (next.js: 9ms, application-code: 439ms)
