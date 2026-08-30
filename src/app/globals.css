@@ -1,0 +1,91 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Almarai", "Segoe UI", "Tahoma", "Arial", sans-serif;
+  --font-almarai: "Almarai", "Segoe UI", "Tahoma", "Arial", sans-serif;
+  --font-poppins: "Poppins", ui-sans-serif, system-ui, sans-serif;
+  --color-primary: #6dc924;
+  --color-primary-dark: #58a71b;
+  --color-primary-light: #e8f7db;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  font-weight: 400;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700;
+}
+
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: #f1f5f9; }
+::-webkit-scrollbar-thumb { background: #6dc924; border-radius: 10px; }
+
+/* Gradient text */
+.text-gradient {
+  background: linear-gradient(135deg, #6dc924, #3d8a10);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Reveal animation */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Float */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+.animate-float { animation: float 5s ease-in-out infinite; }
+.animate-float-slow { animation: float 7s ease-in-out infinite 1s; }
+.animate-float-delay { animation: float 5s ease-in-out infinite 2s; }
+
+/* Pulse dot */
+@keyframes pulseDot {
+  0% { box-shadow: 0 0 0 0 rgba(109,201,36,0.4); }
+  70% { box-shadow: 0 0 0 8px rgba(109,201,36,0); }
+  100% { box-shadow: 0 0 0 0 rgba(109,201,36,0); }
+}
+.animate-pulse-dot { animation: pulseDot 2s infinite; }
+
+/* Hamburger */
+.hamburger-line {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: currentColor;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+  transform-origin: center;
+}
+.hamburger.open .hamburger-line:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.hamburger.open .hamburger-line:nth-child(2) { opacity: 0; }
+.hamburger.open .hamburger-line:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+/* Section tag */
+.section-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #f0fce8;
+  color: #3d8a10;
+  border: 1px solid #c8e6a0;
+  border-radius: 100px;
+  padding: 4px 14px;
+  font-size: 0.8rem;
+  font-weight: 700;
+}
