@@ -11,13 +11,6 @@ export function LanguageProvider({ children }) {
     const saved = localStorage.getItem("lang");
     if (saved && (saved === "ar" || saved === "en")) {
       setLang(saved);
-    } else {
-      const browserLang = navigator.language || navigator.userLanguage;
-      if (browserLang && browserLang.startsWith("en")) {
-        setLang("en");
-      } else {
-        setLang("ar");
-      }
     }
   }, []);
 
