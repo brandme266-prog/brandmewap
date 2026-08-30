@@ -88,7 +88,7 @@ export default function BlogPage() {
               {filtered.map((post) => (
                 <Link
                   key={post.id}
-                  href={`/blog/${post.slug}`}
+                  href={`/blog/post?slug=${post.slug}`}
                   className="group bg-white border border-gray-100 rounded-3xl overflow-hidden hover:shadow-xl hover:border-[#c8e6a0] transition-all duration-300 flex flex-col h-full block"
                 >
                   <div className="relative h-52 w-full overflow-hidden bg-gray-100">

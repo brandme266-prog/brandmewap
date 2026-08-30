@@ -23018,3 +23018,19 @@ https://react.dev/link/hydration-mismatch
 - Environments: .env.local
 ✓ Ready in 1675ms
 ✓ Running next.config.mjs took 93ms
+
+⚠ Found a change in next.config.mjs. Restarting the server to apply the changes...
+▲ Next.js 16.3.0 (Turbopack)
+- Local:         http://localhost:3000
+- Network:       http://192.168.1.17:3000
+- Environments: .env.local
+✓ Ready in 3.8s
+✓ Running next.config.mjs took 81ms
+
+⨯ unhandledRejection: Error: EPERM: operation not permitted, scandir 'F:\beandme-main\src\app\blog\[slug]'
+    at ignore-listed frames {
+  errno: -4048,
+  code: 'EPERM',
+  syscall: 'scandir',
+  path: 'F:\\beandme-main\\src\\app\\blog\\[slug]'
+}

@@ -1,5 +1,6 @@
 "use client";
-import { useEffect, useState, use } from "react";
+import { Suspense } from "react";
+import { useEffect, useState, useSearchParams } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
 import Navbar from "@/components/Navbar";
@@ -16,14 +17,17 @@ const categoryLabels = {
   news: "أخبار",
 };
 
-export default function BlogPostPage({ params }) {
-  const resolvedParams = use(params);
+function BlogPostContent() {
+  const searchParams = useSearchParams();
+  const slug = searchParams.get("slug");
   const [post, setPost] = useState(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const slug = resolvedParams?.slug;
-    if (!slug) return;
+    if (!slug) {
+      setLoading(false);
+      return;
+    }
 
     fetch(`${API_BASE}/api/posts?slug=${slug}`)
       .then((res) => res.json())
@@ -34,7 +38,7 @@ export default function BlogPostPage({ params }) {
       })
       .catch(() => {})
       .finally(() => setLoading(false));
-  }, [resolvedParams?.slug]);
+  }, [slug]);
 
   if (loading) {
     return (
@@ -165,5 +169,26 @@ export default function BlogPostPage({ params }) {
       </main>
       <Footer />
     </>
+  );
+}
+
+export default function BlogPostPage() {
+  return (
+    <Suspense fallback={
+      <>
+        <Navbar />
+        <main className="pt-24 pb-16 bg-gray-50 min-h-screen" dir="rtl">
+          <div className="max-w-4xl mx-auto px-6">
+            <div className="animate-pulse">
+              <div className="h-8 bg-gray-200 rounded w-3/4 mb-4"></div>
+              <div className="h-80 bg-gray-200 rounded-2xl mb-8"></div>
+            </div>
+          </div>
+        </main>
+        <Footer />
+      </>
+    }>
+      <BlogPostContent />
+    </Suspense>
   );
 }
