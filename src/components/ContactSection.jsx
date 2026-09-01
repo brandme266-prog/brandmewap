@@ -1,12 +1,8 @@
 "use client";
-import { useState, useRef, useEffect } from "react";
+import { useRef, useEffect } from "react";
 
 export default function ContactSection() {
   const sectionRef = useRef(null);
-  const [form, setForm] = useState({ name: "", email: "", phone: "", service: "", message: "" });
-  const [errors, setErrors] = useState({});
-  const [loading, setLoading] = useState(false);
-  const [success, setSuccess] = useState(false);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -20,33 +16,6 @@ export default function ContactSection() {
     sectionRef.current?.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
     return () => observer.disconnect();
   }, []);
-
-  const validate = () => {
-    const errs = {};
-    if (!form.name.trim()) errs.name = "الاسم مطلوب";
-    if (!form.email.trim() || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email)) errs.email = "بريد إلكتروني غير صحيح";
-    if (!form.service) errs.service = "اختر الخدمة";
-    if (!form.message.trim()) errs.message = "الرسالة مطلوبة";
-    return errs;
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    const errs = validate();
-    if (Object.keys(errs).length > 0) { setErrors(errs); return; }
-    setLoading(true);
-    setTimeout(() => {
-      setLoading(false);
-      setSuccess(true);
-      setForm({ name: "", email: "", phone: "", service: "", message: "" });
-      setTimeout(() => setSuccess(false), 5000);
-    }, 1500);
-  };
-
-  const inputClass = (field) =>
-    `w-full px-4 py-3 rounded-xl border text-sm transition-all focus:outline-none focus:ring-2 focus:ring-[#6dc924]/30 bg-gray-50 ${
-      errors[field] ? "border-red-400 bg-red-50" : "border-gray-200 focus:border-[#6dc924]"
-    }`;
 
   return (
     <section id="contact" className="py-24 bg-white" aria-labelledby="contact-heading" ref={sectionRef}>
@@ -109,133 +78,29 @@ export default function ContactSection() {
             </div>
           </div>
 
-          {/* Form */}
-          <div className="reveal bg-white rounded-3xl shadow-xl p-8 border border-gray-100" style={{ transitionDelay: "200ms" }}>
-            <form
-              onSubmit={handleSubmit}
-              noValidate
-              aria-label="نموذج التواصل"
+          {/* WhatsApp CTA */}
+          <div className="reveal bg-white rounded-3xl shadow-xl p-10 border border-gray-100 flex flex-col items-center text-center" style={{ transitionDelay: "200ms" }}>
+            <div className="w-20 h-20 bg-[#25D366]/10 rounded-full flex items-center justify-center mb-6">
+              <svg viewBox="0 0 24 24" className="w-10 h-10 text-[#25D366]" fill="currentColor" aria-hidden="true">
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+              </svg>
+            </div>
+            <h3 className="text-2xl font-black text-gray-900 mb-3">تواصل معنا عبر الواتساب</h3>
+            <p className="text-gray-500 mb-8 leading-relaxed">
+              أرسل لنا رسالة الآن وسنرد عليك خلال دقائق. مشروعك يبدأ من هنا!
+            </p>
+            <a
+              href="https://wa.me/201093078796?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%D9%8B%20%D8%A8%D9%83%D9%85%20BrandMe"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-3 bg-[#25D366] text-white py-4 px-10 rounded-full font-bold text-lg hover:bg-[#1da851] transition-all duration-300 shadow-lg shadow-green-200 hover:shadow-xl hover:scale-105"
             >
-              <div className="grid sm:grid-cols-2 gap-4 mb-4">
-                <div>
-                  <label htmlFor="contactName" className="block text-sm font-bold text-gray-700 mb-1.5">
-                    الاسم الكامل <span className="text-red-500" aria-label="حقل مطلوب">*</span>
-                  </label>
-                  <input
-                    type="text"
-                    id="contactName"
-                    value={form.name}
-                    onChange={(e) => { setForm({ ...form, name: e.target.value }); setErrors({ ...errors, name: "" }); }}
-                    placeholder="أدخل اسمك الكامل"
-                    className={inputClass("name")}
-                    autoComplete="name"
-                    aria-required="true"
-                    aria-invalid={!!errors.name}
-                  />
-                  {errors.name && <p className="text-red-500 text-xs mt-1">{errors.name}</p>}
-                </div>
-                <div>
-                  <label htmlFor="contactEmail" className="block text-sm font-bold text-gray-700 mb-1.5">
-                    البريد الإلكتروني <span className="text-red-500" aria-label="حقل مطلوب">*</span>
-                  </label>
-                  <input
-                    type="email"
-                    id="contactEmail"
-                    value={form.email}
-                    onChange={(e) => { setForm({ ...form, email: e.target.value }); setErrors({ ...errors, email: "" }); }}
-                    placeholder="example@email.com"
-                    className={inputClass("email")}
-                    dir="ltr"
-                    autoComplete="email"
-                    aria-required="true"
-                    aria-invalid={!!errors.email}
-                  />
-                  {errors.email && <p className="text-red-500 text-xs mt-1">{errors.email}</p>}
-                </div>
-              </div>
-
-              <div className="mb-4">
-                <label htmlFor="contactPhone" className="block text-sm font-bold text-gray-700 mb-1.5">
-                  رقم الهاتف
-                </label>
-                <input
-                  type="tel"
-                  id="contactPhone"
-                  value={form.phone}
-                  onChange={(e) => setForm({ ...form, phone: e.target.value })}
-                  placeholder="+966 5X XXX XXXX"
-                  className={inputClass("phone")}
-                  dir="ltr"
-                  autoComplete="tel"
-                />
-              </div>
-
-              <div className="mb-4">
-                <label htmlFor="contactService" className="block text-sm font-bold text-gray-700 mb-1.5">
-                  الخدمة المطلوبة <span className="text-red-500" aria-label="حقل مطلوب">*</span>
-                </label>
-                <select
-                  id="contactService"
-                  value={form.service}
-                  onChange={(e) => { setForm({ ...form, service: e.target.value }); setErrors({ ...errors, service: "" }); }}
-                  className={inputClass("service")}
-                  aria-required="true"
-                  aria-invalid={!!errors.service}
-                >
-                  <option value="" disabled>اختر الخدمة المناسبة</option>
-                  <option value="marketing">التسويق الرقمي</option>
-                  <option value="web">تصميم وتطوير المواقع</option>
-                  <option value="app">تطوير التطبيقات</option>
-                  <option value="design">الهوية البصرية والتصميم</option>
-                  <option value="content">إدارة المحتوى</option>
-                  <option value="support">الدعم الفني</option>
-                </select>
-                {errors.service && <p className="text-red-500 text-xs mt-1">{errors.service}</p>}
-              </div>
-
-              <div className="mb-6">
-                <label htmlFor="contactMessage" className="block text-sm font-bold text-gray-700 mb-1.5">
-                  رسالتك <span className="text-red-500" aria-label="حقل مطلوب">*</span>
-                </label>
-                <textarea
-                  id="contactMessage"
-                  value={form.message}
-                  onChange={(e) => { setForm({ ...form, message: e.target.value }); setErrors({ ...errors, message: "" }); }}
-                  rows={5}
-                  placeholder="أخبرنا عن مشروعك وما تحتاجه..."
-                  className={`${inputClass("message")} resize-none`}
-                  aria-required="true"
-                  aria-invalid={!!errors.message}
-                />
-                {errors.message && <p className="text-red-500 text-xs mt-1">{errors.message}</p>}
-              </div>
-
-              <button
-                type="submit"
-                disabled={loading}
-                className="w-full flex items-center justify-center gap-2 bg-[#6dc924] text-white py-4 px-8 rounded-full font-bold text-base hover:bg-[#58a71b] transition-all duration-300 disabled:opacity-70 disabled:cursor-not-allowed shadow-lg shadow-green-200"
-              >
-                {loading ? (
-                  <>
-                    <svg className="w-5 h-5 animate-spin" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
-                      <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83" />
-                    </svg>
-                    جاري الإرسال...
-                  </>
-                ) : (
-                  "إرسال الرسالة ✉️"
-                )}
-              </button>
-
-              {success && (
-                <div className="mt-4 p-4 bg-green-50 border border-green-200 rounded-xl flex items-center gap-3 text-green-800 font-medium text-sm" role="alert">
-                  <svg className="w-5 h-5 text-green-600 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
-                    <polyline points="20 6 9 17 4 12" />
-                  </svg>
-                  تم إرسال رسالتك بنجاح! سنتواصل معك خلال 24 ساعة.
-                </div>
-              )}
-            </form>
+              <svg viewBox="0 0 24 24" className="w-6 h-6" fill="currentColor" aria-hidden="true">
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+              </svg>
+              ابدأ المحادثة الآن
+            </a>
+            <p className="text-gray-400 text-sm mt-4">+20 109 307 8796</p>
           </div>
         </div>
       </div>
