@@ -4,10 +4,10 @@ import Image from "next/image";
 
 const categories = ["الكل", "تصميم مواقع", "هوية بصرية", "تطبيقات جوال"];
 const portfolio = [
-  { id: 1, title: "منصة تعليمية متكاملة", cat: "تصميم مواقع", img: "/images/portfolio_ecommerce.png", client: "أكاديمية المستقبل", stats: { label: "زيادة الزيارات", val: "+120%" } },
-  { id: 2, title: "تطبيق توصيل سريع", cat: "تطبيقات جوال", img: "/images/portfolio_app.png", client: "QuickDeliver", stats: { label: "تحميل التطبيق", val: "+50K" } },
-  { id: 3, title: "تطوير هوية مطعم", cat: "هوية بصرية", img: "/images/portfolio_branding.png", client: "مطعم ريحان", stats: { label: "تفاعل السوشيال", val: "+300%" } },
-  { id: 4, title: "متجر إلكتروني عصري", cat: "تصميم مواقع", img: "/images/portfolio_marketing.png", client: "إليجانس فاشن", stats: { label: "معدل التحويل", val: "4.8%" } },
+  { id: 1, title: "منصة تعليمية متكاملة", cat: "تصميم مواقع", img: "/images/portfolio_ecommerce.webp", client: "أكاديمية المستقبل", stats: { label: "زيادة الزيارات", val: "+120%" } },
+  { id: 2, title: "تطبيق توصيل سريع", cat: "تطبيقات جوال", img: "/images/portfolio_app.webp", client: "QuickDeliver", stats: { label: "تحميل التطبيق", val: "+50K" } },
+  { id: 3, title: "تطوير هوية مطعم", cat: "هوية بصرية", img: "/images/portfolio_branding.webp", client: "مطعم ريحان", stats: { label: "تفاعل السوشيال", val: "+300%" } },
+  { id: 4, title: "متجر إلكتروني عصري", cat: "تصميم مواقع", img: "/images/portfolio_marketing.webp", client: "إليجانس فاشن", stats: { label: "معدل التحويل", val: "4.8%" } },
 ];
 
 export default function PortfolioSection() {
@@ -43,7 +43,7 @@ export default function PortfolioSection() {
                 onClick={() => setActiveCat(c)}
                 className={`whitespace-nowrap px-5 py-2.5 rounded-full text-sm font-bold transition-all ${
                   activeCat === c
-                    ? "bg-[#6dc924] text-white shadow-md shadow-green-100"
+                    ? "bg-[#4a9a10] text-white shadow-md shadow-green-100"
                     : "bg-white text-gray-600 hover:bg-gray-100 border border-gray-200"
                 }`}
               >
@@ -67,16 +67,16 @@ export default function PortfolioSection() {
               </div>
               <div className="p-6">
                 <div className="flex items-center justify-between mb-3">
-                  <span className="text-xs font-bold text-[#6dc924] bg-[#f0fce8] px-3 py-1 rounded-full">{item.cat}</span>
+                  <span className="text-xs font-bold text-[#4a9a10] bg-[#f0f8e8] px-3 py-1 rounded-full">{item.cat}</span>
                   <span className="text-xs text-gray-500 font-medium">{item.client}</span>
                 </div>
-                <h3 className="text-xl font-black text-gray-900 mb-5 group-hover:text-[#6dc924] transition-colors">{item.title}</h3>
+                <h3 className="text-xl font-black text-gray-900 mb-5 group-hover:text-[#4a9a10] transition-colors">{item.title}</h3>
                 <div className="flex items-center gap-4 pt-5 border-t border-gray-100">
                   <div>
                     <p className="text-xs text-gray-500 mb-1">{item.stats.label}</p>
                     <p className="font-black text-gray-900">{item.stats.val}</p>
                   </div>
-                  <button className="mr-auto w-10 h-10 rounded-full bg-gray-50 flex items-center justify-center text-gray-500 group-hover:bg-[#6dc924] group-hover:text-white transition-all">
+                  <button className="mr-auto w-10 h-10 rounded-full bg-gray-50 flex items-center justify-center text-gray-500 group-hover:bg-[#4a9a10] group-hover:text-white transition-all">
                     <svg className="w-4 h-4 -scale-x-100" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" aria-hidden="true">
                       <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
                     </svg>

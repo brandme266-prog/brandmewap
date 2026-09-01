@@ -45,15 +45,15 @@ export default function ServicesSection() {
           {t.services.items.map((service, index) => (
             <div
               key={index}
-              className={`reveal group p-8 rounded-3xl border border-gray-100 hover:border-[#c8e6a0] hover:shadow-xl transition-all duration-300 ${
+              className={`reveal group p-8 rounded-3xl border border-gray-100 hover:border-[#a8d67a] hover:shadow-xl transition-all duration-300 ${
                 index === 4 ? "md:col-span-2 lg:col-span-1" : ""
               }`}
               style={{ transitionDelay: `${index * 100}ms` }}
             >
-              <div className="w-14 h-14 rounded-2xl bg-[#f0fce8] flex items-center justify-center text-[#6dc924] mb-6 group-hover:bg-[#6dc924] group-hover:text-white transition-colors">
+              <div className="w-14 h-14 rounded-2xl bg-[#f0f8e8] flex items-center justify-center text-[#4a9a10] mb-6 group-hover:bg-[#4a9a10] group-hover:text-white transition-colors">
                 {icons[index]}
               </div>
-              <h3 className="text-xl font-black text-gray-900 mb-3 group-hover:text-[#6dc924] transition-colors">
+              <h3 className="text-xl font-black text-gray-900 mb-3 group-hover:text-[#4a9a10] transition-colors">
                 {service.title}
               </h3>
               <p className="text-gray-500 text-sm leading-relaxed">

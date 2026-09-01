@@ -82,13 +82,13 @@ export default function AboutSection() {
           {values.map((v, i) => (
             <div
               key={i}
-              className="reveal group bg-white rounded-2xl p-6 border border-gray-100 hover:border-[#6dc924]/50 hover:shadow-xl hover:shadow-[#6dc924]/5 transition-all duration-300"
+              className="reveal group bg-white rounded-2xl p-6 border border-gray-100 hover:border-[#4a9a10]/50 hover:shadow-xl hover:shadow-[#4a9a10]/5 transition-all duration-300"
               style={{ transitionDelay: `${i * 80}ms` }}
             >
-              <div className="w-12 h-12 bg-gray-50 text-gray-600 rounded-xl flex items-center justify-center mb-5 border border-gray-100 group-hover:bg-[#f0fce8] group-hover:text-[#3d8a10] group-hover:border-[#c8e6a0] transition-colors">
+              <div className="w-12 h-12 bg-gray-50 text-gray-600 rounded-xl flex items-center justify-center mb-5 border border-gray-100 group-hover:bg-[#f0f8e8] group-hover:text-[#3d8a10] group-hover:border-[#a8d67a] transition-colors">
                 {v.icon}
               </div>
-              <h3 className="font-black text-gray-900 text-base mb-2 group-hover:text-[#6dc924] transition-colors">{v.title}</h3>
+              <h3 className="font-black text-gray-900 text-base mb-2 group-hover:text-[#4a9a10] transition-colors">{v.title}</h3>
               <p className="text-gray-500 text-sm leading-relaxed">{v.desc}</p>
             </div>
           ))}
@@ -100,7 +100,7 @@ export default function AboutSection() {
           <div className="relative">
             {/* Line */}
             <div className="absolute top-5 right-[12.5%] left-[12.5%] h-0.5 bg-gray-200 hidden md:block" aria-hidden="true">
-              <div className="h-full bg-[#6dc924] w-3/4"></div>
+              <div className="h-full bg-[#4a9a10] w-3/4"></div>
             </div>
 
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-0">
@@ -108,7 +108,7 @@ export default function AboutSection() {
                 <div key={i} className="flex flex-col items-center text-center">
                   <div className={`w-10 h-10 rounded-full flex items-center justify-center font-black text-sm mb-4 border-2 z-10 ${
                     i === milestones.length - 1
-                      ? "bg-[#6dc924] text-white border-[#6dc924] shadow-md shadow-green-100"
+                      ? "bg-[#4a9a10] text-white border-[#4a9a10] shadow-md shadow-green-100"
                       : "bg-white text-gray-700 border-gray-200"
                   }`}>
                     {i + 1}
@@ -129,7 +129,7 @@ export default function AboutSection() {
             { val: "12",  label: "دولة نخدمها", desc: "حضور إقليمي ودولي" },
           ].map((s, i) => (
             <div key={i} className="bg-white border border-gray-100 rounded-2xl p-6 text-center shadow-sm">
-              <p className="text-4xl font-black text-[#6dc924] leading-none mb-2">{s.val}</p>
+              <p className="text-4xl font-black text-[#4a9a10] leading-none mb-2">{s.val}</p>
               <p className="font-bold text-gray-900 text-sm mb-1">{s.label}</p>
               <p className="text-gray-500 text-xs">{s.desc}</p>
             </div>

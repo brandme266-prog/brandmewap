@@ -79,7 +79,7 @@ export default function BlogSection() {
           </div>
           <Link
             href="/blog"
-            className="text-[#6dc924] font-bold hover:underline whitespace-nowrap text-lg"
+            className="text-[#4a9a10] font-bold hover:underline whitespace-nowrap text-lg"
           >
             {t.blog.allPosts}
           </Link>
@@ -90,7 +90,7 @@ export default function BlogSection() {
             <Link
               key={post.id}
               href={`/blog/post?slug=${post.slug}`}
-              className="reveal group bg-white border border-gray-100 rounded-3xl overflow-hidden hover:shadow-xl hover:border-[#c8e6a0] transition-all duration-300 flex flex-col h-full block"
+              className="reveal group bg-white border border-gray-100 rounded-3xl overflow-hidden hover:shadow-xl hover:border-[#a8d67a] transition-all duration-300 flex flex-col h-full block"
               style={{ transitionDelay: `${index * 100}ms` }}
             >
               <div className="relative h-52 w-full overflow-hidden bg-gray-100">
@@ -106,19 +106,19 @@ export default function BlogSection() {
               </div>
               <div className="p-6 flex-1 flex flex-col">
                 <div className="flex items-center gap-3 mb-4">
-                  <span className="text-xs font-bold text-[#2d6a08] bg-[#f0fce8] px-3 py-1 rounded-full border border-[#c8e6a0]">
+                  <span className="text-xs font-bold text-[#2d6a08] bg-[#f0f8e8] px-3 py-1 rounded-full border border-[#a8d67a]">
                     {t.blog.categories[post.category] || post.category}
                   </span>
                 </div>
-                <h3 className="text-lg font-black text-gray-900 mb-3 group-hover:text-[#6dc924] transition-colors leading-snug">
+                <h3 className="text-lg font-black text-gray-900 mb-3 group-hover:text-[#4a9a10] transition-colors leading-snug">
                   {post.title}
                 </h3>
                 <p className="text-gray-500 text-sm leading-relaxed mb-6 flex-1">
                   {post.excerpt}
                 </p>
                 <div className="flex items-center justify-between text-gray-900 font-bold text-sm">
-                  <span className="group-hover:text-[#6dc924] transition-colors">{t.blog.readMore}</span>
-                  <span className="w-10 h-10 rounded-full bg-gray-50 flex items-center justify-center group-hover:bg-[#6dc924] group-hover:text-white transition-colors border border-gray-100">
+                  <span className="group-hover:text-[#4a9a10] transition-colors">{t.blog.readMore}</span>
+                  <span className="w-10 h-10 rounded-full bg-gray-50 flex items-center justify-center group-hover:bg-[#4a9a10] group-hover:text-white transition-colors border border-gray-100">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" className="w-4 h-4 -scale-x-100">
                       <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
                     </svg>

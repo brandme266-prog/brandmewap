@@ -16,7 +16,7 @@ const Footer = lazy(() => import("@/components/Footer"));
 function SectionLoader() {
   return (
     <div className="py-20 flex items-center justify-center">
-      <div className="w-8 h-8 border-4 border-[#6dc924] border-t-transparent rounded-full animate-spin" />
+      <div className="w-8 h-8 border-4 border-[#4a9a10] border-t-transparent rounded-full animate-spin" />
     </div>
   );
 }
@@ -91,7 +91,7 @@ export default function Home() {
 
       <button
         onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-        className={`fixed bottom-8 left-6 z-50 w-12 h-12 bg-[#6dc924] text-white rounded-full shadow-lg shadow-green-200 flex items-center justify-center hover:bg-[#58a71b] transition-all duration-300 ${
+        className={`fixed bottom-8 left-6 z-50 w-12 h-12 bg-[#4a9a10] text-white rounded-full shadow-lg shadow-green-200 flex items-center justify-center hover:bg-[#3d820d] transition-all duration-300 ${
           showScroll ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4 pointer-events-none"
         }`}
         aria-label="العودة لأعلى الصفحة"

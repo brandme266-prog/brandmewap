@@ -30,7 +30,7 @@ export default function Footer() {
             <div className="flex gap-2">
               {socials.map((s, i) => (
                 <a key={i} href={s.href} aria-label={s.label}
-                  className="w-9 h-9 rounded-full bg-gray-100 flex items-center justify-center text-gray-500 hover:bg-[#6dc924] hover:text-white transition-colors">
+                  className="w-9 h-9 rounded-full bg-gray-100 flex items-center justify-center text-gray-500 hover:bg-[#4a9a10] hover:text-white transition-colors">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4">
                     {s.icon}
                   </svg>
@@ -43,10 +43,10 @@ export default function Footer() {
           <nav className="lg:col-span-2">
             <h3 className="font-black text-gray-900 mb-4">{t.footer.services}</h3>
             <ul className="space-y-3 text-sm text-gray-500">
-              <li><a href="#services" onClick={(e) => go(e, "#services")} className="hover:text-[#6dc924] transition-colors">Digital Marketing</a></li>
-              <li><a href="#services" onClick={(e) => go(e, "#services")} className="hover:text-[#6dc924] transition-colors">Web Design</a></li>
-              <li><a href="#services" onClick={(e) => go(e, "#services")} className="hover:text-[#6dc924] transition-colors">Software Dev</a></li>
-              <li><a href="#services" onClick={(e) => go(e, "#services")} className="hover:text-[#6dc924] transition-colors">Mobile Apps</a></li>
+              <li><a href="#services" onClick={(e) => go(e, "#services")} className="hover:text-[#4a9a10] transition-colors">Digital Marketing</a></li>
+              <li><a href="#services" onClick={(e) => go(e, "#services")} className="hover:text-[#4a9a10] transition-colors">Web Design</a></li>
+              <li><a href="#services" onClick={(e) => go(e, "#services")} className="hover:text-[#4a9a10] transition-colors">Software Dev</a></li>
+              <li><a href="#services" onClick={(e) => go(e, "#services")} className="hover:text-[#4a9a10] transition-colors">Mobile Apps</a></li>
             </ul>
           </nav>
 
@@ -54,10 +54,10 @@ export default function Footer() {
           <nav className="lg:col-span-2">
             <h3 className="font-black text-gray-900 mb-4">{t.footer.company}</h3>
             <ul className="space-y-3 text-sm text-gray-500">
-              <li><a href="#about" onClick={(e) => go(e, "#about")} className="hover:text-[#6dc924] transition-colors">{t.nav.about}</a></li>
-              <li><a href="#portfolio" onClick={(e) => go(e, "#portfolio")} className="hover:text-[#6dc924] transition-colors">{t.nav.portfolio}</a></li>
-              <li><a href="#blog" onClick={(e) => go(e, "#blog")} className="hover:text-[#6dc924] transition-colors">{t.nav.blog}</a></li>
-              <li><a href="#contact" onClick={(e) => go(e, "#contact")} className="hover:text-[#6dc924] transition-colors">{t.nav.contact}</a></li>
+              <li><a href="#about" onClick={(e) => go(e, "#about")} className="hover:text-[#4a9a10] transition-colors">{t.nav.about}</a></li>
+              <li><a href="#portfolio" onClick={(e) => go(e, "#portfolio")} className="hover:text-[#4a9a10] transition-colors">{t.nav.portfolio}</a></li>
+              <li><a href="#blog" onClick={(e) => go(e, "#blog")} className="hover:text-[#4a9a10] transition-colors">{t.nav.blog}</a></li>
+              <li><a href="#contact" onClick={(e) => go(e, "#contact")} className="hover:text-[#4a9a10] transition-colors">{t.nav.contact}</a></li>
             </ul>
           </nav>
 
@@ -69,9 +69,9 @@ export default function Footer() {
               <input
                 type="email"
                 placeholder={t.footer.emailPlaceholder}
-                className="flex-1 px-4 py-2.5 border border-gray-200 rounded-xl text-sm focus:outline-none focus:border-[#6dc924]"
+                className="flex-1 px-4 py-2.5 border border-gray-200 rounded-xl text-sm focus:outline-none focus:border-[#4a9a10]"
               />
-              <button className="bg-[#6dc924] text-white px-5 py-2.5 rounded-xl text-sm font-bold hover:bg-[#58a71b] transition-colors">
+              <button className="bg-[#4a9a10] text-white px-5 py-2.5 rounded-xl text-sm font-bold hover:bg-[#3d820d] transition-colors">
                 {t.footer.subscribe}
               </button>
             </form>

@@ -56,7 +56,7 @@ export default function TestimonialsSection() {
           <div>
             <span className="section-tag mb-4">آراء عملائنا</span>
             <h2 id="testimonials-heading" className="text-4xl md:text-5xl font-black text-gray-900 mt-4 leading-tight">
-              شريكك نحو<br /><span className="text-[#6dc924]">النجاح الحقيقي</span>
+              شريكك نحو<br /><span className="text-[#4a9a10]">النجاح الحقيقي</span>
             </h2>
           </div>
           <p className="text-gray-500 text-lg leading-relaxed max-w-sm">
@@ -71,7 +71,7 @@ export default function TestimonialsSection() {
               onClick={() => setActive(i)}
               className={`reveal cursor-pointer rounded-2xl p-8 border transition-all duration-300 ${
                 active === i
-                  ? "bg-white border-[#c8e6a0] shadow-xl shadow-green-50"
+                  ? "bg-white border-[#a8d67a] shadow-xl shadow-green-50"
                   : "bg-white/50 border-gray-100 hover:border-gray-200 hover:bg-white"
               }`}
               style={{ transitionDelay: `${i * 100}ms` }}
@@ -88,7 +88,7 @@ export default function TestimonialsSection() {
                 "{t.text}"
               </p>
 
-              <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-bold mb-6 bg-[#f0fce8] text-[#2d6a08] border border-[#c8e6a0]">
+              <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-bold mb-6 bg-[#f0f8e8] text-[#2d6a08] border border-[#a8d67a]">
                 <svg className="w-3 h-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" aria-hidden="true">
                   <polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/>
                 </svg>
@@ -112,7 +112,7 @@ export default function TestimonialsSection() {
         <div className="flex justify-center gap-2 reveal">
           {testimonials.map((_, i) => (
             <button key={i} onClick={() => setActive(i)} aria-label={`شهادة ${i + 1}`}
-              className={`h-2 rounded-full transition-all duration-300 ${active === i ? "w-8 bg-[#6dc924]" : "w-2 bg-gray-300"}`}
+              className={`h-2 rounded-full transition-all duration-300 ${active === i ? "w-8 bg-[#4a9a10]" : "w-2 bg-gray-300"}`}
             />
           ))}
         </div>

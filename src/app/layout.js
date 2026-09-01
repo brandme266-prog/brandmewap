@@ -97,7 +97,7 @@ export const viewport = {
   width: "device-width",
   initialScale: 1,
   maximumScale: 5,
-  themeColor: "#6dc924",
+  themeColor: "#4a9a10",
 };
 
 export default function RootLayout({ children }) {
@@ -210,8 +210,8 @@ export default function RootLayout({ children }) {
           />
         </noscript>
         <link rel="icon" href="/images/favicon.svg" type="image/svg+xml" />
-        <meta name="msapplication-TileColor" content="#6dc924" />
-        <meta name="theme-color" content="#6dc924" />
+        <meta name="msapplication-TileColor" content="#4a9a10" />
+        <meta name="theme-color" content="#4a9a10" />
         <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
         <meta name="referrer" content="strict-origin-when-cross-origin" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />

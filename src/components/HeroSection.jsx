@@ -52,8 +52,8 @@ export default function HeroSection() {
 
             {/* Content */}
             <div className="text-right">
-              <div className="inline-flex items-center gap-2 bg-[#f0fce8] border border-[#c8e6a0] text-[#2d6a08] text-sm font-bold px-4 py-1.5 rounded-full mb-6">
-                <span className="w-2 h-2 bg-[#6dc924] rounded-full animate-pulse-dot" />
+              <div className="inline-flex items-center gap-2 bg-[#f0f8e8] border border-[#a8d67a] text-[#2d6a08] text-sm font-bold px-4 py-1.5 rounded-full mb-6">
+                <span className="w-2 h-2 bg-[#4a9a10] rounded-full animate-pulse-dot" />
                 {t.hero.badge}
               </div>
 
@@ -69,7 +69,7 @@ export default function HeroSection() {
 
               <div className="flex flex-wrap items-center justify-end gap-4 mb-12">
                 <button onClick={() => go("#contact")}
-                  className="bg-[#6dc924] text-white px-8 py-4 rounded-full font-bold text-base hover:bg-[#58a71b] transition-colors shadow-lg shadow-green-100 flex items-center gap-2">
+                  className="bg-[#4a9a10] text-white px-8 py-4 rounded-full font-bold text-base hover:bg-[#3d820d] transition-colors shadow-lg shadow-green-100 flex items-center gap-2">
                   {t.hero.btn1}
                   <svg className="w-4 h-4 -scale-x-100" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
                     <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
@@ -108,8 +108,8 @@ export default function HeroSection() {
             <div className="relative h-[480px] w-full flex items-center justify-center">
               <div className="absolute right-4 top-10 w-[340px] bg-white rounded-2xl shadow-xl shadow-gray-200 border border-gray-100 p-6 animate-float z-10">
                 <div className="flex items-center justify-between mb-6 border-b border-gray-50 pb-4">
-                  <div className="w-10 h-10 bg-[#f0fce8] rounded-full flex items-center justify-center">
-                    <svg className="w-5 h-5 text-[#6dc924]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <div className="w-10 h-10 bg-[#f0f8e8] rounded-full flex items-center justify-center">
+                    <svg className="w-5 h-5 text-[#4a9a10]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                       <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
                     </svg>
                   </div>
@@ -127,7 +127,7 @@ export default function HeroSection() {
                         <span className="text-gray-900">{s.val}</span>
                       </div>
                       <div className="h-1.5 w-full bg-gray-100 rounded-full overflow-hidden">
-                        <div className="h-full bg-[#6dc924] rounded-full" style={{ width: s.p }} />
+                        <div className="h-full bg-[#4a9a10] rounded-full" style={{ width: s.p }} />
                       </div>
                     </div>
                   ))}
@@ -138,7 +138,7 @@ export default function HeroSection() {
                 <p className="text-xs text-gray-500 font-bold mb-1">Growth Rate</p>
                 <div className="flex items-center gap-3">
                   <p className="text-3xl font-black text-gray-900">+320%</p>
-                  <svg className="w-6 h-6 text-[#6dc924]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                  <svg className="w-6 h-6 text-[#4a9a10]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
                     <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/>
                   </svg>
                 </div>
@@ -154,7 +154,7 @@ export default function HeroSection() {
                 <p className="text-2xl font-black text-gray-900 text-center mt-2">98%</p>
               </div>
 
-              <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-[#6dc924]/5 rounded-full blur-3xl z-[-1]" />
+              <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-[#4a9a10]/5 rounded-full blur-3xl z-[-1]" />
             </div>
 
           </div>

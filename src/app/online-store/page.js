@@ -198,15 +198,15 @@ export default function OnlineStorePage() {
       {/* Hero */}
       <section className="relative min-h-[70vh] flex items-center overflow-hidden bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900">
         <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute top-20 right-10 w-72 h-72 bg-[#6dc924] rounded-full mix-blend-multiply blur-[128px] opacity-20 animate-float" />
-          <div className="absolute bottom-20 left-10 w-96 h-96 bg-[#6dc924] rounded-full mix-blend-multiply blur-[128px] opacity-10 animate-float-slow" />
-          <div className="absolute inset-0 opacity-[0.03]" style={{backgroundImage: "radial-gradient(circle, #6dc924 1px, transparent 1px)", backgroundSize: "40px 40px"}} />
+          <div className="absolute top-20 right-10 w-72 h-72 bg-[#4a9a10] rounded-full mix-blend-multiply blur-[128px] opacity-20 animate-float" />
+          <div className="absolute bottom-20 left-10 w-96 h-96 bg-[#4a9a10] rounded-full mix-blend-multiply blur-[128px] opacity-10 animate-float-slow" />
+          <div className="absolute inset-0 opacity-[0.03]" style={{backgroundImage: "radial-gradient(circle, #4a9a10 1px, transparent 1px)", backgroundSize: "40px 40px"}} />
         </div>
         <div className="max-w-7xl mx-auto px-6 relative z-10 pt-24">
           <div className="max-w-3xl mx-auto text-center">
-            <div className="reveal inline-flex items-center gap-2 bg-[#6dc924]/10 border border-[#6dc924]/20 rounded-full px-4 py-2 mb-8">
-              <span className="w-2 h-2 bg-[#6dc924] rounded-full animate-pulse" />
-              <span className="text-[#6dc924] font-bold text-sm">{lang === "ar" ? "عرض محدود لفترة محدودة جداً" : "Limited time offer"}</span>
+            <div className="reveal inline-flex items-center gap-2 bg-[#4a9a10]/10 border border-[#4a9a10]/20 rounded-full px-4 py-2 mb-8">
+              <span className="w-2 h-2 bg-[#4a9a10] rounded-full animate-pulse" />
+              <span className="text-[#4a9a10] font-bold text-sm">{lang === "ar" ? "عرض محدود لفترة محدودة جداً" : "Limited time offer"}</span>
             </div>
             <h1 className="reveal text-5xl md:text-7xl font-black text-white leading-tight mb-6">
               {lang === "ar" ? "صمم متجرك" : "Build Your"}
@@ -219,7 +219,7 @@ export default function OnlineStorePage() {
                 : "Online stores have become essential for modern commerce. Help your customers showcase products and interact with visitors easily."}
             </p>
             <div className="reveal flex flex-wrap gap-4 justify-center">
-              <a href="#pricing" className="inline-flex items-center gap-2 bg-[#6dc924] text-white px-8 py-4 rounded-2xl font-black text-lg hover:bg-[#58a71b] transition-all hover:scale-105 shadow-lg shadow-[#6dc924]/25">
+              <a href="#pricing" className="inline-flex items-center gap-2 bg-[#4a9a10] text-white px-8 py-4 rounded-2xl font-black text-lg hover:bg-[#3d820d] transition-all hover:scale-105 shadow-lg shadow-[#4a9a10]/25">
                 {lang === "ar" ? "الباقات والأسعار" : "Packages & Pricing"}
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" className="w-5 h-5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
               </a>
@@ -254,7 +254,7 @@ export default function OnlineStorePage() {
         <div className="max-w-6xl mx-auto px-6">
           <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
             {/* Portfolio Website */}
-            <div className="reveal bg-white rounded-3xl p-8 border border-gray-100 hover:border-[#c8e6a0] transition-all duration-300 hover:shadow-xl" style={{ transitionDelay: "100ms" }}>
+            <div className="reveal bg-white rounded-3xl p-8 border border-gray-100 hover:border-[#a8d67a] transition-all duration-300 hover:shadow-xl" style={{ transitionDelay: "100ms" }}>
               <h3 className="text-xl font-black text-gray-900 mb-1">{lang === "ar" ? "تصميم مواقع تعريفية" : "Portfolio Website"}</h3>
               <div className="flex items-center gap-3 mb-6">
                 <span className="text-5xl font-black text-gray-900">4,500</span>
@@ -281,20 +281,20 @@ export default function OnlineStorePage() {
                   "دعم فني مستمر",
                 ].map((f, j) => (
                   <li key={j} className="flex items-start gap-2.5 text-sm text-gray-600">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="#6dc924" strokeWidth="2.5" className="w-4 h-4 flex-shrink-0 mt-1"><polyline points="20 6 9 17 4 12"/></svg>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="#4a9a10" strokeWidth="2.5" className="w-4 h-4 flex-shrink-0 mt-1"><polyline points="20 6 9 17 4 12"/></svg>
                     {f}
                   </li>
                 ))}
               </ul>
               <a href="https://wa.me/201093078796?text=%D8%B9%D8%A7%D9%8A%D8%B2+%D8%A7%D8%B7%D9%84%D8%A8+%D8%AA%D8%B5%D9%85%D9%8A%D9%85+%D9%85%D9%88%D9%82%D8%B9+%D8%AA%D8%B9%D8%B1%D9%8A%D9%81%D9%8A" target="_blank" rel="noopener noreferrer"
-                className="block text-center py-4 rounded-2xl font-black text-lg bg-gray-100 text-gray-900 hover:bg-[#6dc924] hover:text-white transition-all">
+                className="block text-center py-4 rounded-2xl font-black text-lg bg-gray-100 text-gray-900 hover:bg-[#4a9a10] hover:text-white transition-all">
                 {lang === "ar" ? "اطلب الآن ..!" : "Order Now!"}
               </a>
             </div>
 
             {/* Pro - Popular */}
-            <div className="reveal bg-white rounded-3xl p-8 border-2 border-[#6dc924] shadow-xl shadow-[#6dc924]/10 relative transition-all duration-300 hover:scale-105" style={{ transitionDelay: "200ms" }}>
-              <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-[#6dc924] text-white px-6 py-1.5 rounded-full text-sm font-black whitespace-nowrap">
+            <div className="reveal bg-white rounded-3xl p-8 border-2 border-[#4a9a10] shadow-xl shadow-[#4a9a10]/10 relative transition-all duration-300 hover:scale-105" style={{ transitionDelay: "200ms" }}>
+              <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-[#4a9a10] text-white px-6 py-1.5 rounded-full text-sm font-black whitespace-nowrap">
                 {lang === "ar" ? "الأكثر طلباً" : "Most Popular"}
               </div>
               <h3 className="text-xl font-black text-gray-900 mb-1">{lang === "ar" ? "تصميم المتاجر الإلكترونية" : "Online Store"}</h3>
@@ -307,13 +307,13 @@ export default function OnlineStorePage() {
               <ul className="space-y-2.5 mb-8">
                 {proFeatures.map((f, j) => (
                   <li key={j} className="flex items-start gap-2.5 text-sm text-gray-600">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="#6dc924" strokeWidth="2.5" className="w-4 h-4 flex-shrink-0 mt-1"><polyline points="20 6 9 17 4 12"/></svg>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="#4a9a10" strokeWidth="2.5" className="w-4 h-4 flex-shrink-0 mt-1"><polyline points="20 6 9 17 4 12"/></svg>
                     {j === 0 ? <span className="font-bold text-[#3d8a10]">{f} 😍</span> : f}
                   </li>
                 ))}
               </ul>
               <a href="https://wa.me/201093078796" target="_blank" rel="noopener noreferrer"
-                className="block text-center py-4 rounded-2xl font-black text-lg bg-[#6dc924] text-white hover:bg-[#58a71b] transition-all shadow-lg shadow-[#6dc924]/25">
+                className="block text-center py-4 rounded-2xl font-black text-lg bg-[#4a9a10] text-white hover:bg-[#3d820d] transition-all shadow-lg shadow-[#4a9a10]/25">
                 {lang === "ar" ? "إشترك الآن ..!" : "Subscribe Now!"}
               </a>
             </div>
@@ -330,9 +330,9 @@ export default function OnlineStorePage() {
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {miniFeatures.map((f, i) => (
-              <div key={i} className="reveal bg-white p-6 rounded-2xl border border-gray-100 hover:border-[#c8e6a0] hover:shadow-lg transition-all duration-300 group" style={{ transitionDelay: `${i * 50}ms` }}>
+              <div key={i} className="reveal bg-white p-6 rounded-2xl border border-gray-100 hover:border-[#a8d67a] hover:shadow-lg transition-all duration-300 group" style={{ transitionDelay: `${i * 50}ms` }}>
                 <span className="text-3xl mb-4 block">{f.icon}</span>
-                <h3 className="font-black text-gray-900 mb-2 group-hover:text-[#6dc924] transition-colors">{f.title[lang]}</h3>
+                <h3 className="font-black text-gray-900 mb-2 group-hover:text-[#4a9a10] transition-colors">{f.title[lang]}</h3>
                 <p className="text-gray-500 text-sm leading-relaxed">{f.desc[lang]}</p>
               </div>
             ))}
@@ -370,8 +370,8 @@ export default function OnlineStorePage() {
       {/* Final CTA */}
       <section className="py-24 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 relative overflow-hidden">
         <div className="absolute inset-0">
-          <div className="absolute top-10 right-20 w-64 h-64 bg-[#6dc924] rounded-full mix-blend-multiply blur-[128px] opacity-20" />
-          <div className="absolute bottom-10 left-20 w-80 h-80 bg-[#6dc924] rounded-full mix-blend-multiply blur-[128px] opacity-10" />
+          <div className="absolute top-10 right-20 w-64 h-64 bg-[#4a9a10] rounded-full mix-blend-multiply blur-[128px] opacity-20" />
+          <div className="absolute bottom-10 left-20 w-80 h-80 bg-[#4a9a10] rounded-full mix-blend-multiply blur-[128px] opacity-10" />
         </div>
         <div className="max-w-4xl mx-auto px-6 text-center relative z-10 reveal">
           <h2 className="text-4xl md:text-5xl font-black text-white mb-6">
@@ -382,7 +382,7 @@ export default function OnlineStorePage() {
           </p>
           <div className="flex flex-wrap gap-4 justify-center">
             <a href="https://wa.me/201093078796" target="_blank" rel="noopener noreferrer"
-              className="inline-flex items-center gap-3 bg-[#6dc924] text-white px-10 py-5 rounded-2xl font-black text-xl hover:bg-[#58a71b] transition-all hover:scale-105 shadow-lg shadow-[#6dc924]/25">
+              className="inline-flex items-center gap-3 bg-[#4a9a10] text-white px-10 py-5 rounded-2xl font-black text-xl hover:bg-[#3d820d] transition-all hover:scale-105 shadow-lg shadow-[#4a9a10]/25">
               <svg viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6">
                 <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
               </svg>

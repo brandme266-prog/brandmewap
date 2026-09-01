@@ -45,12 +45,12 @@ export default function StepsSection() {
               <div key={i} className="reveal flex flex-col items-center text-center group" style={{ transitionDelay: `${i * 100}ms` }}>
                 <div className={`w-16 h-16 rounded-full flex items-center justify-center text-xl font-black mb-5 border-4 border-white transition-all duration-300 ${
                   i === 4 
-                    ? "bg-[#6dc924] text-white shadow-lg shadow-green-100 scale-110" 
-                    : "bg-gray-50 text-gray-700 border-gray-100 group-hover:bg-[#f0fce8] group-hover:text-[#2d6a08] group-hover:border-[#c8e6a0]"
+                    ? "bg-[#4a9a10] text-white shadow-lg shadow-green-100 scale-110" 
+                    : "bg-gray-50 text-gray-700 border-gray-100 group-hover:bg-[#f0f8e8] group-hover:text-[#2d6a08] group-hover:border-[#a8d67a]"
                 }`}>
                   {step.num}
                 </div>
-                <h3 className={`font-black text-base mb-2 transition-colors ${i === 4 ? "text-[#6dc924]" : "text-gray-900 group-hover:text-[#6dc924]"}`}>
+                <h3 className={`font-black text-base mb-2 transition-colors ${i === 4 ? "text-[#4a9a10]" : "text-gray-900 group-hover:text-[#4a9a10]"}`}>
                   {step.title}
                 </h3>
                 <p className="text-gray-500 text-sm leading-relaxed">{step.desc}</p>
@@ -60,7 +60,7 @@ export default function StepsSection() {
         </div>
 
         <div className="text-center mt-16 reveal">
-          <button onClick={go} className="bg-[#6dc924] text-white px-8 py-3.5 rounded-full font-bold text-base hover:bg-[#58a71b] transition-colors shadow-lg shadow-green-100">
+          <button onClick={go} className="bg-[#4a9a10] text-white px-8 py-3.5 rounded-full font-bold text-base hover:bg-[#3d820d] transition-colors shadow-lg shadow-green-100">
             ابدأ مشروعك الآن
           </button>
         </div>

@@ -72,7 +72,7 @@ function BlogPostContent() {
         <main className="pt-24 pb-16 bg-gray-50 min-h-screen" dir="rtl">
           <div className="max-w-4xl mx-auto px-6 text-center py-16">
             <h1 className="text-3xl font-black text-gray-900 mb-4">المقال غير موجود</h1>
-            <Link href="/blog" className="text-[#6dc924] font-bold hover:underline">
+            <Link href="/blog" className="text-[#4a9a10] font-bold hover:underline">
               العودة للمدونة
             </Link>
           </div>
@@ -94,7 +94,7 @@ function BlogPostContent() {
       <Navbar />
       <main className="pt-24 pb-16 bg-gray-50 min-h-screen" dir="rtl">
         <article className="max-w-4xl mx-auto px-6">
-          <Link href="/blog" className="inline-flex items-center gap-2 text-[#6dc924] font-bold mb-6 hover:underline">
+          <Link href="/blog" className="inline-flex items-center gap-2 text-[#4a9a10] font-bold mb-6 hover:underline">
             <svg className="w-5 h-5 rotate-180" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
               <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
             </svg>
@@ -102,7 +102,7 @@ function BlogPostContent() {
           </Link>
 
           <div className="flex items-center gap-3 mb-4">
-            <span className="text-sm font-bold text-[#3d8a10] bg-[#f0fce8] px-4 py-1.5 rounded-full border border-[#c8e6a0]">
+            <span className="text-sm font-bold text-[#3d8a10] bg-[#f0f8e8] px-4 py-1.5 rounded-full border border-[#a8d67a]">
               {categoryLabels[post.category] || post.category}
             </span>
             <span className="text-sm text-gray-500">
@@ -165,8 +165,8 @@ function BlogPostContent() {
             </div>
           )}
 
-          <div className="flex items-center gap-4 p-6 bg-[#f0fce8] rounded-2xl border border-[#c8e6a0]">
-            <div className="w-12 h-12 rounded-full bg-[#6dc924] flex items-center justify-center flex-shrink-0">
+          <div className="flex items-center gap-4 p-6 bg-[#f0f8e8] rounded-2xl border border-[#a8d67a]">
+            <div className="w-12 h-12 rounded-full bg-[#4a9a10] flex items-center justify-center flex-shrink-0">
               <span className="text-white font-black text-lg">B</span>
             </div>
             <div>

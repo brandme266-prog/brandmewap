@@ -65,7 +65,7 @@ export default function Navbar() {
               href={item.href}
               onClick={(e) => go(e, item.href)}
               className={`px-3.5 py-2 text-sm font-semibold rounded-lg transition-colors ${
-                active === item.href.slice(1) ? "text-[#6dc924]" : "text-gray-600 hover:text-gray-900"
+                active === item.href.slice(1) ? "text-[#4a9a10]" : "text-gray-600 hover:text-gray-900"
               }`}
             >
               {item.label}
@@ -88,7 +88,7 @@ export default function Navbar() {
             {lang === "ar" ? "EN" : "عربي"}
           </button>
           <a href="https://wa.me/201093078796" target="_blank" rel="noopener noreferrer"
-            className="bg-[#6dc924] text-white text-sm font-bold px-5 py-2.5 rounded-full hover:bg-[#58a71b] transition-colors shadow-md shadow-green-100">
+            className="bg-[#4a9a10] text-white text-sm font-bold px-5 py-2.5 rounded-full hover:bg-[#3d820d] transition-colors shadow-md shadow-green-100">
             {t.nav.cta}
           </a>
         </div>
@@ -125,7 +125,7 @@ export default function Navbar() {
             {lang === "ar" ? "English" : "العربية"}
           </button>
           <a href="https://wa.me/201093078796" target="_blank" rel="noopener noreferrer"
-            className="mt-2 text-center bg-[#6dc924] text-white px-6 py-3 rounded-full font-bold text-sm">
+            className="mt-2 text-center bg-[#4a9a10] text-white px-6 py-3 rounded-full font-bold text-sm">
             {t.nav.cta}
           </a>
         </nav>

@@ -23,7 +23,7 @@ export default function ContactSection() {
         <div className="grid lg:grid-cols-2 gap-16 items-start">
           {/* Info */}
           <div className="reveal">
-            <span className="inline-block bg-[#e8f7db] text-[#58a71b] text-sm font-bold px-4 py-1.5 rounded-full mb-4">
+            <span className="inline-block bg-[#e8f7db] text-[#3d820d] text-sm font-bold px-4 py-1.5 rounded-full mb-4">
               تواصل معنا
             </span>
             <h2 id="contact-heading" className="text-4xl md:text-5xl font-black text-gray-900 mb-4 leading-tight">
@@ -45,7 +45,7 @@ export default function ContactSection() {
                   <div>
                     <p className="font-bold text-gray-900 text-sm mb-0.5">{item.title}</p>
                     {item.href ? (
-                      <a href={item.href} className="text-gray-500 text-sm hover:text-[#6dc924] transition-colors">
+                      <a href={item.href} className="text-gray-500 text-sm hover:text-[#4a9a10] transition-colors">
                         {item.val}
                       </a>
                     ) : (
@@ -68,7 +68,7 @@ export default function ContactSection() {
                   href="#"
                   aria-label={social.label}
                   rel="noopener noreferrer"
-                  className="w-11 h-11 bg-gray-100 text-gray-600 rounded-full flex items-center justify-center hover:bg-[#6dc924] hover:text-white transition-all duration-300"
+                  className="w-11 h-11 bg-gray-100 text-gray-600 rounded-full flex items-center justify-center hover:bg-[#4a9a10] hover:text-white transition-all duration-300"
                 >
                   <svg viewBox="0 0 24 24" className="w-5 h-5" fill={social.stroke ? "none" : "currentColor"} stroke={social.stroke ? "currentColor" : ""} strokeWidth={social.stroke ? "2" : undefined} aria-hidden="true">
                     {social.icon}

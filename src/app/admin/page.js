@@ -271,11 +271,11 @@ function AdminContent() {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             placeholder={t.admin.password}
-            className="w-full px-4 py-3 border border-gray-200 rounded-xl mb-4 focus:outline-none focus:border-[#6dc924]"
+            className="w-full px-4 py-3 border border-gray-200 rounded-xl mb-4 focus:outline-none focus:border-[#4a9a10]"
           />
           <button
             type="submit"
-            className="w-full bg-[#6dc924] text-white py-3 rounded-xl font-bold hover:bg-[#58a71b] transition"
+            className="w-full bg-[#4a9a10] text-white py-3 rounded-xl font-bold hover:bg-[#3d820d] transition"
           >
             {t.admin.enter}
           </button>
@@ -294,7 +294,7 @@ function AdminContent() {
             <button onClick={toggleLang} className="px-3 py-1.5 text-xs font-bold rounded-lg border border-gray-200 text-gray-600 hover:bg-gray-50 transition-colors">
               {lang === "ar" ? "EN" : "عربي"}
             </button>
-            <a href="/" className="text-[#6dc924] font-bold hover:underline">{t.admin.backToSite}</a>
+            <a href="/" className="text-[#4a9a10] font-bold hover:underline">{t.admin.backToSite}</a>
           </div>
         </div>
 
@@ -304,7 +304,7 @@ function AdminContent() {
             onClick={() => setTab("dashboard")}
             className={`px-6 py-3 rounded-xl font-bold transition ${
               tab === "dashboard"
-                ? "bg-[#6dc924] text-white"
+                ? "bg-[#4a9a10] text-white"
                 : "bg-white text-gray-600 border border-gray-200 hover:bg-gray-50"
             }`}
           >
@@ -314,7 +314,7 @@ function AdminContent() {
             onClick={() => setTab("projects")}
             className={`px-6 py-3 rounded-xl font-bold transition ${
               tab === "projects"
-                ? "bg-[#6dc924] text-white"
+                ? "bg-[#4a9a10] text-white"
                 : "bg-white text-gray-600 border border-gray-200 hover:bg-gray-50"
             }`}
           >
@@ -324,7 +324,7 @@ function AdminContent() {
             onClick={() => setTab("posts")}
             className={`px-6 py-3 rounded-xl font-bold transition ${
               tab === "posts"
-                ? "bg-[#6dc924] text-white"
+                ? "bg-[#4a9a10] text-white"
                 : "bg-white text-gray-600 border border-gray-200 hover:bg-gray-50"
             }`}
           >
@@ -334,7 +334,7 @@ function AdminContent() {
 
         {msg && (
           <div className={`px-4 py-3 rounded-xl mb-6 font-bold ${
-            msg.includes("خطأ") ? "bg-red-50 border border-red-200 text-red-600" : "bg-[#f0fce8] border border-[#c8e6a0] text-[#3d8a10]"
+            msg.includes("خطأ") ? "bg-red-50 border border-red-200 text-red-600" : "bg-[#f0f8e8] border border-[#a8d67a] text-[#3d8a10]"
           }`}>
             {msg}
           </div>
@@ -368,12 +368,12 @@ function AdminContent() {
               <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-6">
                 <div className="flex items-center justify-between mb-4">
                   <h3 className="font-black text-gray-900">{t.admin.recentProjects}</h3>
-                  <button onClick={() => setTab("projects")} className="text-sm text-[#6dc924] font-bold hover:underline">{t.admin.showAll}</button>
+                  <button onClick={() => setTab("projects")} className="text-sm text-[#4a9a10] font-bold hover:underline">{t.admin.showAll}</button>
                 </div>
                 <div className="space-y-3">
                   {(stats?.recentProjects || projects.slice(0, 5)).map((p) => (
                     <div key={p.id} className="flex items-center gap-3 p-3 rounded-xl hover:bg-gray-50 transition">
-                      <div className="w-2 h-2 rounded-full bg-[#6dc924] flex-shrink-0" />
+                      <div className="w-2 h-2 rounded-full bg-[#4a9a10] flex-shrink-0" />
                       <div className="flex-1 min-w-0">
                         <p className="font-bold text-gray-900 text-sm truncate">{p.title}</p>
                         <p className="text-xs text-gray-400">{p.category}</p>
@@ -388,7 +388,7 @@ function AdminContent() {
               <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-6">
                 <div className="flex items-center justify-between mb-4">
                   <h3 className="font-black text-gray-900">{t.admin.recentPosts}</h3>
-                  <button onClick={() => setTab("posts")} className="text-sm text-[#6dc924] font-bold hover:underline">{t.admin.showAll}</button>
+                  <button onClick={() => setTab("posts")} className="text-sm text-[#4a9a10] font-bold hover:underline">{t.admin.showAll}</button>
                 </div>
                 <div className="space-y-3">
                   {(stats?.recentPosts || posts.slice(0, 5)).map((p) => (
@@ -410,11 +410,11 @@ function AdminContent() {
               <h3 className="font-black text-gray-900 mb-4">{t.admin.quickActions}</h3>
               <div className="flex flex-wrap gap-3">
                 <button onClick={() => { setTab("projects"); setEditingProject(null); setProjectForm(emptyProject); }}
-                  className="px-5 py-2.5 bg-[#f0fce8] text-[#3d8a10] rounded-xl font-bold text-sm hover:bg-[#e0f5d0] transition border border-[#c8e6a0]">
+                  className="px-5 py-2.5 bg-[#f0f8e8] text-[#3d8a10] rounded-xl font-bold text-sm hover:bg-[#e0f5d0] transition border border-[#a8d67a]">
                   {t.admin.addProject}
                 </button>
                 <button onClick={() => { setTab("posts"); setEditingPost(null); setPostForm(emptyPost); }}
-                  className="px-5 py-2.5 bg-[#f0fce8] text-[#3d8a10] rounded-xl font-bold text-sm hover:bg-[#e0f5d0] transition border border-[#c8e6a0]">
+                  className="px-5 py-2.5 bg-[#f0f8e8] text-[#3d8a10] rounded-xl font-bold text-sm hover:bg-[#e0f5d0] transition border border-[#a8d67a]">
                   {t.admin.addPost}
                 </button>
                 <a href="/" target="_blank"
@@ -445,7 +445,7 @@ function AdminContent() {
                     value={projectForm.title}
                     onChange={(e) => setProjectForm({ ...projectForm, title: e.target.value })}
                     required
-                    className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:border-[#6dc924]"
+                    className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:border-[#4a9a10]"
                   />
                 </div>
                 <div>
@@ -454,7 +454,7 @@ function AdminContent() {
                     name="category"
                     value={projectForm.category}
                     onChange={(e) => setProjectForm({ ...projectForm, category: e.target.value })}
-                    className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:border-[#6dc924]"
+                    className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:border-[#4a9a10]"
                   >
                     <option value="all">الكل</option>
                     <option value="web">مواقع إلكترونية</option>
@@ -468,7 +468,7 @@ function AdminContent() {
                     value={projectForm.description}
                     onChange={(e) => setProjectForm({ ...projectForm, description: e.target.value })}
                     rows={3}
-                    className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:border-[#6dc924]"
+                    className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:border-[#4a9a10]"
                   />
                 </div>
                 <div>
@@ -477,7 +477,7 @@ function AdminContent() {
                     name="link"
                     value={projectForm.link}
                     onChange={(e) => setProjectForm({ ...projectForm, link: e.target.value })}
-                    className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:border-[#6dc924]"
+                    className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:border-[#4a9a10]"
                   />
                 </div>
                 <div>
@@ -487,7 +487,7 @@ function AdminContent() {
                     value={projectForm.features}
                     onChange={(e) => setProjectForm({ ...projectForm, features: e.target.value })}
                     placeholder="تطبيق جوال, تجارة إلكترونية"
-                    className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:border-[#6dc924]"
+                    className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:border-[#4a9a10]"
                   />
                 </div>
                 <div>
@@ -497,7 +497,7 @@ function AdminContent() {
                     value={projectForm.image_url}
                     onChange={(e) => setProjectForm({ ...projectForm, image_url: e.target.value })}
                     placeholder="/images/... أو رابط خارجي"
-                    className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:border-[#6dc924]"
+                    className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:border-[#4a9a10]"
                   />
                 </div>
                 <div>
@@ -517,14 +517,14 @@ function AdminContent() {
                     name="order_index"
                     value={projectForm.order_index}
                     onChange={(e) => setProjectForm({ ...projectForm, order_index: e.target.value })}
-                    className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:border-[#6dc924]"
+                    className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:border-[#4a9a10]"
                   />
                 </div>
                 <div className="md:col-span-2 flex gap-4">
                   <button
                     type="submit"
                     disabled={loading}
-                    className="bg-[#6dc924] text-white px-8 py-3 rounded-xl font-bold hover:bg-[#58a71b] transition disabled:opacity-50"
+                    className="bg-[#4a9a10] text-white px-8 py-3 rounded-xl font-bold hover:bg-[#3d820d] transition disabled:opacity-50"
                   >
                     {loading ? "جاري..." : editingProject ? "تعديل" : "إضافة"}
                   </button>
@@ -547,7 +547,7 @@ function AdminContent() {
                 {projects.map((project) => (
                   <div
                     key={project.id}
-                    className="flex items-center gap-4 p-4 border border-gray-100 rounded-xl hover:border-[#c8e6a0] transition"
+                    className="flex items-center gap-4 p-4 border border-gray-100 rounded-xl hover:border-[#a8d67a] transition"
                   >
                     <div className="w-16 h-16 rounded-lg overflow-hidden bg-gray-100 flex-shrink-0">
                       {(project.img || project.image_url) && (
@@ -600,7 +600,7 @@ function AdminContent() {
                       setPostForm((f) => ({ ...f, title, slug: f.slug || slugify(title) }));
                     }}
                     required
-                    className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:border-[#6dc924]"
+                    className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:border-[#4a9a10]"
                   />
                 </div>
                 <div>
@@ -611,7 +611,7 @@ function AdminContent() {
                     required
                     placeholder="my-article-slug"
                     dir="ltr"
-                    className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:border-[#6dc924]"
+                    className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:border-[#4a9a10]"
                   />
                 </div>
                 <div className="md:col-span-2">
@@ -620,7 +620,7 @@ function AdminContent() {
                     value={postForm.excerpt}
                     onChange={(e) => setPostForm({ ...postForm, excerpt: e.target.value })}
                     rows={2}
-                    className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:border-[#6dc924]"
+                    className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:border-[#4a9a10]"
                   />
                 </div>
                 <div className="md:col-span-2">
@@ -630,7 +630,7 @@ function AdminContent() {
                     onChange={(e) => setPostForm({ ...postForm, content: e.target.value })}
                     rows={12}
                     dir="ltr"
-                    className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:border-[#6dc924] font-mono text-sm"
+                    className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:border-[#4a9a10] font-mono text-sm"
                   />
                 </div>
                 <div>
@@ -638,7 +638,7 @@ function AdminContent() {
                   <select
                     value={postForm.category}
                     onChange={(e) => setPostForm({ ...postForm, category: e.target.value })}
-                    className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:border-[#6dc924]"
+                    className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:border-[#4a9a10]"
                   >
                     <option value="general">عام</option>
                     <option value="marketing">تسويق رقمي</option>
@@ -654,7 +654,7 @@ function AdminContent() {
                     value={postForm.tags}
                     onChange={(e) => setPostForm({ ...postForm, tags: e.target.value })}
                     placeholder="تسويق, ويب, نصائح"
-                    className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:border-[#6dc924]"
+                    className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:border-[#4a9a10]"
                   />
                 </div>
                 <div>
@@ -663,7 +663,7 @@ function AdminContent() {
                     value={postForm.image_url}
                     onChange={(e) => setPostForm({ ...postForm, image_url: e.target.value })}
                     placeholder="/images/... أو رابط خارجي"
-                    className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:border-[#6dc924]"
+                    className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:border-[#4a9a10]"
                   />
                 </div>
                 <div>
@@ -682,7 +682,7 @@ function AdminContent() {
                       type="checkbox"
                       checked={postForm.is_published}
                       onChange={(e) => setPostForm({ ...postForm, is_published: e.target.checked })}
-                      className="w-5 h-5 rounded border-gray-300 text-[#6dc924] focus:ring-[#6dc924]"
+                      className="w-5 h-5 rounded border-gray-300 text-[#4a9a10] focus:ring-[#4a9a10]"
                     />
                     <span className="font-bold text-gray-700">نشر المقال</span>
                   </label>
@@ -691,7 +691,7 @@ function AdminContent() {
                   <button
                     type="submit"
                     disabled={loading}
-                    className="bg-[#6dc924] text-white px-8 py-3 rounded-xl font-bold hover:bg-[#58a71b] transition disabled:opacity-50"
+                    className="bg-[#4a9a10] text-white px-8 py-3 rounded-xl font-bold hover:bg-[#3d820d] transition disabled:opacity-50"
                   >
                     {loading ? "جاري..." : editingPost ? "تعديل" : "نشر"}
                   </button>
@@ -717,7 +717,7 @@ function AdminContent() {
                 {posts.map((post) => (
                   <div
                     key={post.id}
-                    className="flex items-center gap-4 p-4 border border-gray-100 rounded-xl hover:border-[#c8e6a0] transition"
+                    className="flex items-center gap-4 p-4 border border-gray-100 rounded-xl hover:border-[#a8d67a] transition"
                   >
                     <div className="w-16 h-16 rounded-lg overflow-hidden bg-gray-100 flex-shrink-0">
                       {post.image_url && (

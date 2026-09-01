@@ -67,7 +67,7 @@ export default function BlogPage() {
                 onClick={() => setActiveCategory(cat.id)}
                 className={`whitespace-nowrap px-6 py-2.5 rounded-full text-sm font-bold transition-all ${
                   activeCategory === cat.id
-                    ? "bg-[#6dc924] text-white shadow-md shadow-green-100"
+                    ? "bg-[#4a9a10] text-white shadow-md shadow-green-100"
                     : "bg-white text-gray-600 hover:bg-gray-100 border border-gray-200"
                 }`}
               >
@@ -95,7 +95,7 @@ export default function BlogPage() {
                 <Link
                   key={post.id}
                   href={`/blog/post?slug=${post.slug}`}
-                  className="group bg-white border border-gray-100 rounded-3xl overflow-hidden hover:shadow-xl hover:border-[#c8e6a0] transition-all duration-300 flex flex-col h-full block"
+                  className="group bg-white border border-gray-100 rounded-3xl overflow-hidden hover:shadow-xl hover:border-[#a8d67a] transition-all duration-300 flex flex-col h-full block"
                 >
                   <div className="relative h-52 w-full overflow-hidden bg-gray-100">
                     {post.image_url && (
@@ -110,18 +110,18 @@ export default function BlogPage() {
                   </div>
                   <div className="p-6 flex-1 flex flex-col">
                     <div className="flex items-center gap-3 mb-4">
-                      <span className="text-xs font-bold text-[#3d8a10] bg-[#f0fce8] px-3 py-1 rounded-full border border-[#c8e6a0]">
+                      <span className="text-xs font-bold text-[#3d8a10] bg-[#f0f8e8] px-3 py-1 rounded-full border border-[#a8d67a]">
                         {categoryLabels[post.category] || post.category}
                       </span>
                     </div>
-                    <h2 className="text-lg font-black text-gray-900 mb-3 group-hover:text-[#6dc924] transition-colors leading-snug">
+                    <h2 className="text-lg font-black text-gray-900 mb-3 group-hover:text-[#4a9a10] transition-colors leading-snug">
                       {post.title}
                     </h2>
                     <p className="text-gray-500 text-sm leading-relaxed mb-6 flex-1">
                       {post.excerpt}
                     </p>
                     <div className="flex items-center justify-between text-gray-900 font-bold text-sm">
-                      <span className="group-hover:text-[#6dc924] transition-colors">اقرأ المزيد</span>
+                      <span className="group-hover:text-[#4a9a10] transition-colors">اقرأ المزيد</span>
                       <div className="flex items-center gap-1 text-gray-500 text-xs">
                         <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
                           <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
