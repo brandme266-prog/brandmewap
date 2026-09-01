@@ -23047,3 +23047,4 @@ https://react.dev/link/hydration-mismatch
  GET / 200 in 616ms (next.js: 272ms, application-code: 344ms)
  GET / 200 in 448ms (next.js: 9ms, application-code: 439ms)
 ✓ Compiled in 2.6s
+ GET /online-store 200 in 268ms (next.js: 8ms, application-code: 260ms)
