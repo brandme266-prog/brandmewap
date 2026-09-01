@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import SEO from "@/components/SEO";
 
 const API_BASE = process.env.NEXT_PUBLIC_API_URL || "https://brandme-api.brandme266.workers.dev";
 
@@ -39,6 +40,11 @@ export default function BlogPage() {
 
   return (
     <>
+      <SEO
+        title="المدونة | نصائح وأفكار في التسويق الرقمي"
+        description="آخر المقالات والأفكار في عالم التسويق الرقمي، تطوير المواقع، التصميم، ونصائح عملية لنجاح تواجدك الرقمي."
+        url="https://brandme-api.brandme266.workers.dev/blog"
+      />
       <Navbar />
       <main className="pt-24 pb-16 bg-gray-50 min-h-screen" dir="rtl">
         <div className="max-w-6xl mx-auto px-6">

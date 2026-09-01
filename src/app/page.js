@@ -1,6 +1,7 @@
 "use client";
 import { useEffect, useState, lazy, Suspense } from "react";
 import Navbar from "@/components/Navbar";
+import SEO from "@/components/SEO";
 
 const HeroSection = lazy(() => import("@/components/HeroSection"));
 const ServicesSection = lazy(() => import("@/components/ServicesSection"));
@@ -31,6 +32,12 @@ export default function Home() {
 
   return (
     <>
+      <SEO
+        title="BrandMe | وكالة تسويق رقمي وبرمجة مواقع وتطبيقات"
+        description="BrandMe وكالة رقمية متكاملة متخصصة في التسويق الرقمي، تصميم وبرمجة مواقع الويب، تطبيقات الموبايل، هوية البصمة التجارية. +8 سنوات خبرة، 230+ عميل، 12 دولة."
+        image="/images/logo/logo.webp"
+        url="https://brandme-api.brandme266.workers.dev"
+      />
       <Navbar />
       <main id="main-content">
         <Suspense fallback={<SectionLoader />}>

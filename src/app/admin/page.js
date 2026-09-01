@@ -1,6 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
 import { LanguageProvider, useLanguage } from "@/context/LanguageContext";
+import SEO from "@/components/SEO";
 
 const API_BASE = process.env.NEXT_PUBLIC_API_URL || "https://brandme-api.brandme266.workers.dev";
 const ADMIN_PASSWORD = "brandme-admin-2024";
@@ -285,6 +286,7 @@ function AdminContent() {
 
   return (
     <div className="min-h-screen bg-gray-50" dir={lang === "ar" ? "rtl" : "ltr"}>
+      <SEO title="لوحة التحكم" noindex={true} />
       <div className="max-w-6xl mx-auto px-6 py-10">
         <div className="flex items-center justify-between mb-8">
           <h1 className="text-3xl font-black text-gray-900">{t.admin.title}</h1>

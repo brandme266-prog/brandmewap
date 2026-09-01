@@ -1,10 +1,12 @@
 "use client";
 import { Suspense } from "react";
-import { useEffect, useState, useSearchParams } from "next/navigation";
+import { useEffect, useState } from "react";
+import { useSearchParams } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import SEO from "@/components/SEO";
 
 const API_BASE = process.env.NEXT_PUBLIC_API_URL || "https://brandme-api.brandme266.workers.dev";
 
@@ -82,6 +84,13 @@ function BlogPostContent() {
 
   return (
     <>
+      <SEO
+        title={post.title}
+        description={post.excerpt || post.title}
+        image={post.image_url}
+        url={`https://brandme-api.brandme266.workers.dev/blog/post?slug=${slug}`}
+        type="article"
+      />
       <Navbar />
       <main className="pt-24 pb-16 bg-gray-50 min-h-screen" dir="rtl">
         <article className="max-w-4xl mx-auto px-6">
@@ -167,6 +176,37 @@ function BlogPostContent() {
           </div>
         </article>
       </main>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Article",
+            headline: post.title,
+            description: post.excerpt || "",
+            image: post.image_url,
+            author: {
+              "@type": "Organization",
+              name: "BrandMe Agency",
+              url: "https://brandme-api.brandme266.workers.dev",
+            },
+            publisher: {
+              "@type": "Organization",
+              name: "BrandMe Agency",
+              logo: {
+                "@type": "ImageObject",
+                url: "https://brandme-api.brandme266.workers.dev/images/logo/logo.webp",
+              },
+            },
+            datePublished: post.created_at,
+            dateModified: post.updated_at,
+            mainEntityOfPage: {
+              "@type": "WebPage",
+              "@id": `https://brandme-api.brandme266.workers.dev/blog/post?slug=${slug}`,
+            },
+          }),
+        }}
+      />
       <Footer />
     </>
   );

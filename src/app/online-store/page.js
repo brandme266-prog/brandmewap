@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useLanguage } from "@/context/LanguageContext";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import SEO from "@/components/SEO";
 
 function CountdownTimer() {
   const [mounted, setMounted] = useState(false);
@@ -186,6 +187,13 @@ export default function OnlineStorePage() {
 
   return (
     <div dir={lang === "ar" ? "rtl" : "ltr"} ref={sectionRef}>
+      <SEO
+        title="المتجر الإلكتروني | تصميم وبرمجة متجر إلكتروني احترافي"
+        description="تصميم وبرمجة متاجر إلكترونية احترافية بأقل تكلفة. 39 ميزة متكاملة، دفع إلكتروني، إدارة منتجات، لوحة تحكم. عرض خاص: خصم 50% لفترة محدودة."
+        image="/images/logo/logo.webp"
+        url="https://brandme-api.brandme266.workers.dev/online-store"
+        type="product"
+      />
       <Navbar />
       {/* Hero */}
       <section className="relative min-h-[70vh] flex items-center overflow-hidden bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900">
@@ -384,6 +392,30 @@ export default function OnlineStorePage() {
         </div>
       </section>
       <Footer />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Product",
+            name: "تصميم وبرمجة متجر إلكتروني - BrandMe",
+            description: "تصميم وبرمجة متجر إلكتروني احترافي بـ 39 ميزة متكاملة مع دفع إلكتروني وإدارة منتجات ولوحة تحكم",
+            brand: { "@type": "Brand", name: "BrandMe Agency" },
+            offers: {
+              "@type": "Offer",
+              price: "6500",
+              priceCurrency: "EGP",
+              availability: "https://schema.org/InStock",
+              validFrom: "2026-08-30",
+            },
+            aggregateRating: {
+              "@type": "AggregateRating",
+              ratingValue: "4.9",
+              reviewCount: "230",
+            },
+          }),
+        }}
+      />
     </div>
   );
 }
