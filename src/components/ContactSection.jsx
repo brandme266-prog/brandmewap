@@ -100,7 +100,7 @@ export default function ContactSection() {
               </svg>
               ابدأ المحادثة الآن
             </a>
-            <p className="text-gray-400 text-sm mt-4">+20 109 307 8796</p>
+            <p className="text-gray-500 text-sm mt-4">+20 109 307 8796</p>
           </div>
         </div>
       </div>

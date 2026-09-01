@@ -122,7 +122,7 @@ export default function BlogPage() {
                     </p>
                     <div className="flex items-center justify-between text-gray-900 font-bold text-sm">
                       <span className="group-hover:text-[#6dc924] transition-colors">اقرأ المزيد</span>
-                      <div className="flex items-center gap-1 text-gray-400 text-xs">
+                      <div className="flex items-center gap-1 text-gray-500 text-xs">
                         <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
                           <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
                           <circle cx="12" cy="12" r="3"/>

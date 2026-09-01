@@ -105,7 +105,7 @@ function BlogPostContent() {
             <span className="text-sm font-bold text-[#3d8a10] bg-[#f0fce8] px-4 py-1.5 rounded-full border border-[#c8e6a0]">
               {categoryLabels[post.category] || post.category}
             </span>
-            <span className="text-sm text-gray-400">
+            <span className="text-sm text-gray-500">
               {new Date(post.created_at).toLocaleDateString("ar-EG", {
                 year: "numeric",
                 month: "long",

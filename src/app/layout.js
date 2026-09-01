@@ -205,6 +205,9 @@ export default function RootLayout({ children }) {
         <meta name="msapplication-TileColor" content="#6dc924" />
         <meta name="theme-color" content="#6dc924" />
         <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
+        <meta httpEquiv="X-Content-Type-Options" content="nosniff" />
+        <meta httpEquiv="X-Frame-Options" content="DENY" />
+        <meta name="referrer" content="strict-origin-when-cross-origin" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link rel="dns-prefetch" href="https://brandme-api.brandme266.workers.dev" />

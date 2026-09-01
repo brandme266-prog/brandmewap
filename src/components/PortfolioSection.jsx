@@ -76,7 +76,7 @@ export default function PortfolioSection() {
                     <p className="text-xs text-gray-500 mb-1">{item.stats.label}</p>
                     <p className="font-black text-gray-900">{item.stats.val}</p>
                   </div>
-                  <button className="mr-auto w-10 h-10 rounded-full bg-gray-50 flex items-center justify-center text-gray-400 group-hover:bg-[#6dc924] group-hover:text-white transition-all">
+                  <button className="mr-auto w-10 h-10 rounded-full bg-gray-50 flex items-center justify-center text-gray-500 group-hover:bg-[#6dc924] group-hover:text-white transition-all">
                     <svg className="w-4 h-4 -scale-x-100" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" aria-hidden="true">
                       <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
                     </svg>

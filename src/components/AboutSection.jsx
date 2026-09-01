@@ -96,7 +96,7 @@ export default function AboutSection() {
 
         {/* Timeline */}
         <div className="reveal bg-gray-50 rounded-3xl border border-gray-100 p-8 md:p-12 mb-8">
-          <p className="text-center text-sm font-bold text-gray-400 uppercase tracking-widest mb-10">رحلتنا عبر السنين</p>
+          <p className="text-center text-sm font-bold text-gray-500 uppercase tracking-widest mb-10">رحلتنا عبر السنين</p>
           <div className="relative">
             {/* Line */}
             <div className="absolute top-5 right-[12.5%] left-[12.5%] h-0.5 bg-gray-200 hidden md:block" aria-hidden="true">

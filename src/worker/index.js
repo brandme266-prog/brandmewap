@@ -66,7 +66,13 @@ export default {
       }
 
       if (env.ASSETS) {
-        return env.ASSETS.fetch(request);
+        const res = await env.ASSETS.fetch(request);
+        const headers = new Headers(res.headers);
+        headers.set("X-Content-Type-Options", "nosniff");
+        headers.set("X-Frame-Options", "DENY");
+        headers.set("Referrer-Policy", "strict-origin-when-cross-origin");
+        headers.set("Permissions-Policy", "camera=(), microphone=(), geolocation=()");
+        return new Response(res.body, { status: res.status, headers });
       }
       return new Response("Not Found", { status: 404, headers: corsHeaders });
     } catch (err) {

@@ -135,7 +135,7 @@ export default function HeroSection() {
               </div>
 
               <div className="absolute left-0 bottom-16 w-56 bg-white rounded-2xl shadow-xl shadow-gray-200 border border-gray-100 p-5 animate-float-slow z-20">
-                <p className="text-xs text-gray-400 font-bold mb-1">Growth Rate</p>
+                <p className="text-xs text-gray-500 font-bold mb-1">Growth Rate</p>
                 <div className="flex items-center gap-3">
                   <p className="text-3xl font-black text-gray-900">+320%</p>
                   <svg className="w-6 h-6 text-[#6dc924]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
@@ -164,7 +164,7 @@ export default function HeroSection() {
       {/* PARTNERS */}
       <div className="bg-gray-50 border-y border-gray-100 py-10">
         <div className="max-w-6xl mx-auto px-6">
-          <p className="text-center text-xs font-bold text-gray-400 uppercase tracking-widest mb-6">{t.hero.partners}</p>
+          <p className="text-center text-xs font-bold text-gray-500 uppercase tracking-widest mb-6">{t.hero.partners}</p>
           <div className="flex flex-wrap justify-center items-center gap-10">
             {["noon", "tamara", "sidra", "jahez"].map((p, i) => (
               <span key={i} className="text-gray-400 font-bold text-base hover:text-gray-600 transition-colors cursor-default">
