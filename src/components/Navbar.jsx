@@ -86,7 +86,7 @@ export default function Navbar() {
           >
             {lang === "ar" ? "EN" : "عربي"}
           </button>
-          <a href="#contact" onClick={(e) => go(e, "#contact")}
+          <a href="https://wa.me/201002052205" target="_blank" rel="noopener noreferrer"
             className="bg-[#6dc924] text-white text-sm font-bold px-5 py-2.5 rounded-full hover:bg-[#58a71b] transition-colors shadow-md shadow-green-100">
             {t.nav.cta}
           </a>
@@ -123,7 +123,7 @@ export default function Navbar() {
           >
             {lang === "ar" ? "English" : "العربية"}
           </button>
-          <a href="#contact" onClick={(e) => go(e, "#contact")}
+          <a href="https://wa.me/201002052205" target="_blank" rel="noopener noreferrer"
             className="mt-2 text-center bg-[#6dc924] text-white px-6 py-3 rounded-full font-bold text-sm">
             {t.nav.cta}
           </a>
