@@ -200,13 +200,19 @@ export default function RootLayout({ children }) {
         <link
           href="https://fonts.googleapis.com/css2?family=Almarai:wght@400;700;800&family=Poppins:wght@300;400;500;600;700;800;900&display=swap"
           rel="stylesheet"
+          media="print"
+          onLoad="this.media='all'"
         />
+        <noscript>
+          <link
+            href="https://fonts.googleapis.com/css2?family=Almarai:wght@400;700;800&family=Poppins:wght@300;400;500;600;700;800;900&display=swap"
+            rel="stylesheet"
+          />
+        </noscript>
         <link rel="icon" href="/images/favicon.svg" type="image/svg+xml" />
         <meta name="msapplication-TileColor" content="#6dc924" />
         <meta name="theme-color" content="#6dc924" />
         <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
-        <meta httpEquiv="X-Content-Type-Options" content="nosniff" />
-        <meta httpEquiv="X-Frame-Options" content="DENY" />
         <meta name="referrer" content="strict-origin-when-cross-origin" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />

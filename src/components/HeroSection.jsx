@@ -52,7 +52,7 @@ export default function HeroSection() {
 
             {/* Content */}
             <div className="text-right">
-              <div className="inline-flex items-center gap-2 bg-[#f0fce8] border border-[#c8e6a0] text-[#3d8a10] text-sm font-bold px-4 py-1.5 rounded-full mb-6">
+              <div className="inline-flex items-center gap-2 bg-[#f0fce8] border border-[#c8e6a0] text-[#2d6a08] text-sm font-bold px-4 py-1.5 rounded-full mb-6">
                 <span className="w-2 h-2 bg-[#6dc924] rounded-full animate-pulse-dot" />
                 {t.hero.badge}
               </div>
@@ -167,7 +167,7 @@ export default function HeroSection() {
           <p className="text-center text-xs font-bold text-gray-500 uppercase tracking-widest mb-6">{t.hero.partners}</p>
           <div className="flex flex-wrap justify-center items-center gap-10">
             {["noon", "tamara", "sidra", "jahez"].map((p, i) => (
-              <span key={i} className="text-gray-400 font-bold text-base hover:text-gray-600 transition-colors cursor-default">
+              <span key={i} className="text-gray-500 font-bold text-base hover:text-gray-700 transition-colors cursor-default">
                 {p}
               </span>
             ))}

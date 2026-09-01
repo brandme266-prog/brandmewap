@@ -88,7 +88,7 @@ export default function TestimonialsSection() {
                 "{t.text}"
               </p>
 
-              <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-bold mb-6 bg-[#f0fce8] text-[#3d8a10] border border-[#c8e6a0]">
+              <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-bold mb-6 bg-[#f0fce8] text-[#2d6a08] border border-[#c8e6a0]">
                 <svg className="w-3 h-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" aria-hidden="true">
                   <polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/>
                 </svg>

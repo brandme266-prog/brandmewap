@@ -46,7 +46,7 @@ export default function StepsSection() {
                 <div className={`w-16 h-16 rounded-full flex items-center justify-center text-xl font-black mb-5 border-4 border-white transition-all duration-300 ${
                   i === 4 
                     ? "bg-[#6dc924] text-white shadow-lg shadow-green-100 scale-110" 
-                    : "bg-gray-50 text-gray-700 border-gray-100 group-hover:bg-[#f0fce8] group-hover:text-[#3d8a10] group-hover:border-[#c8e6a0]"
+                    : "bg-gray-50 text-gray-700 border-gray-100 group-hover:bg-[#f0fce8] group-hover:text-[#2d6a08] group-hover:border-[#c8e6a0]"
                 }`}>
                   {step.num}
                 </div>

@@ -164,7 +164,7 @@ export default function SoftwareSection() {
               <div className="p-6 flex-1 flex flex-col">
                 <div className="flex gap-2 mb-4 flex-wrap">
                   {(project.tech || []).map((t, i) => (
-                    <span key={i} className="text-xs font-bold text-[#3d8a10] bg-[#f0fce8] px-3 py-1 rounded-full border border-[#c8e6a0]">
+                    <span key={i} className="text-xs font-bold text-[#2d6a08] bg-[#f0fce8] px-3 py-1 rounded-full border border-[#c8e6a0]">
                       {t}
                     </span>
                   ))}
