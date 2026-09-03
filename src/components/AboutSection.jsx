@@ -126,7 +126,7 @@ export default function AboutSection() {
           {[
             { val: "50+", label: "خبير متخصص", desc: "مصمم، مطور، مسوّق" },
             { val: "8",   label: "سنوات خبرة", desc: "في السوق الرقمي" },
-            { val: "12",  label: "دولة نخدمها", desc: "حضور إقليمي ودولي" },
+            { val: "4",  label: "دول نخدمها", desc: "حضور إقليمي ودولي" },
           ].map((s, i) => (
             <div key={i} className="bg-white border border-gray-100 rounded-2xl p-6 text-center shadow-sm">
               <p className="text-4xl font-black text-[#4a9a10] leading-none mb-2">{s.val}</p>
