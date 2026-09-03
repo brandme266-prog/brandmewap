@@ -1,0 +1,20 @@
+name = "brandme-api"
+main = "src/worker/index.js"
+compatibility_date = "2024-12-01"
+
+[assets]
+directory = "./out"
+binding = "ASSETS"
+
+[vars]
+ADMIN_PASSWORD = "brandme-admin-2024"
+CORS_ORIGIN = "*"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "brandme-projects"
+database_id = "d3c8cfba-207d-4be3-b2ba-4c08c0e27753"
+
+[[r2_buckets]]
+binding = "R2"
+bucket_name = "brandme-images"
