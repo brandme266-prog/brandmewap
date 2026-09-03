@@ -165,9 +165,9 @@ export default function OnlineStorePage() {
   const [currency, setCurrency] = useState("EGP");
 
   const prices = useMemo(() => ({
-    EGP: { basic: "3,500", pro: "6,500", symbol: "ج" },
-    USD: { basic: "70", pro: "130", symbol: "$" },
-    SAR: { basic: "263", pro: "488", symbol: "ريال" },
+    EGP: { basic: "4,500", basicOld: "9,000", pro: "6,500", proOld: "13,000", symbol: "ج" },
+    USD: { basic: "90", basicOld: "180", pro: "130", proOld: "260", symbol: "$" },
+    SAR: { basic: "340", basicOld: "680", pro: "490", proOld: "980", symbol: "ريال" },
   }), []);
 
   const p = prices[currency];
@@ -191,7 +191,7 @@ export default function OnlineStorePage() {
         title="المتجر الإلكتروني | تصميم وبرمجة متجر إلكتروني احترافي"
         description="تصميم وبرمجة متاجر إلكترونية احترافية بأقل تكلفة. 39 ميزة متكاملة، دفع إلكتروني، إدارة منتجات، لوحة تحكم. عرض خاص: خصم 50% لفترة محدودة."
         image="/images/logo/logo.webp"
-        url="https://brandme-api.brandme266.workers.dev/online-store"
+        url="https://brand1me.com/online-store"
         type="product"
       />
       <Navbar />
@@ -256,11 +256,14 @@ export default function OnlineStorePage() {
             {/* Portfolio Website */}
             <div className="reveal bg-white rounded-3xl p-8 border border-gray-100 hover:border-[#a8d67a] transition-all duration-300 hover:shadow-xl" style={{ transitionDelay: "100ms" }}>
               <h3 className="text-xl font-black text-gray-900 mb-1">{lang === "ar" ? "تصميم مواقع تعريفية" : "Portfolio Website"}</h3>
-              <div className="flex items-center gap-3 mb-6">
-                <span className="text-5xl font-black text-gray-900">4,500</span>
+              <div className="flex items-center gap-3 mb-2">
+                <span className="text-5xl font-black text-gray-900">{p.basic}</span>
                 <span className="text-gray-500 font-bold">{p.symbol}</span>
-                <span className="bg-red-500 text-white text-xs font-black px-3 py-1 rounded-full">-50%</span>
+                <span className="bg-red-500 text-white text-xs font-black px-2.5 py-1 rounded-full whitespace-nowrap shadow-sm">
+                  {lang === "ar" ? "خصم 50%" : "50% OFF"}
+                </span>
               </div>
+              <p className="text-gray-400 text-sm mb-6 line-through">{lang === "ar" ? `بدلاً من ${p.basicOld} ${p.symbol}` : `Was ${p.basicOld} ${p.symbol}`}</p>
               <ul className="space-y-2.5 mb-8">
                 {[
                   "رابط خاص (دومين .COM)",
@@ -298,12 +301,14 @@ export default function OnlineStorePage() {
                 {lang === "ar" ? "الأكثر طلباً" : "Most Popular"}
               </div>
               <h3 className="text-xl font-black text-gray-900 mb-1">{lang === "ar" ? "تصميم المتاجر الإلكترونية" : "Online Store"}</h3>
-              <div className="flex items-center gap-3 mb-6">
+              <div className="flex items-center gap-3 mb-2">
                 <span className="text-5xl font-black text-gray-900">{p.pro}</span>
                 <span className="text-gray-500 font-bold">{p.symbol}</span>
-                <span className="bg-red-500 text-white text-xs font-black px-3 py-1 rounded-full">-50%</span>
+                <span className="bg-red-500 text-white text-xs font-black px-2.5 py-1 rounded-full whitespace-nowrap shadow-sm">
+                  {lang === "ar" ? "خصم 50%" : "50% OFF"}
+                </span>
               </div>
-              <p className="text-gray-400 text-sm mb-6 line-through">{lang === "ar" ? "بدلاً من 12,500 ج" : "Was 12,500 EGP"}</p>
+              <p className="text-gray-400 text-sm mb-6 line-through">{lang === "ar" ? `بدلاً من ${p.proOld} ${p.symbol}` : `Was ${p.proOld} ${p.symbol}`}</p>
               <ul className="space-y-2.5 mb-8">
                 {proFeatures.map((f, j) => (
                   <li key={j} className="flex items-start gap-2.5 text-sm text-gray-600">

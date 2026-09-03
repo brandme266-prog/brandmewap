@@ -2,86 +2,22 @@
 import { useEffect, useRef, useState } from "react";
 
 
-const API_BASE = import.meta.env.VITE_API_URL || "https://brandme-api.your-subdomain.workers.dev";
+import { portfolio } from "../data/portfolio.js";
 
-const fallbackProjects = [
-  {
-    id: 1,
-    type: "app",
-    title: "تطبيق أوردرات (Ordart)",
-    tech: ["تطبيق جوال", "تجارة إلكترونية"],
-    desc: "تطبيق ذكي لتسهيل الطلبات وتقديم تجربة مستخدم سلسة وعصرية.",
-    img: "/images/httpsplay.google.comstoreappsdetailsid=com.ordart.app.webp",
-    color: "from-blue-500 to-cyan-400",
-    link: "https://play.google.com/store/apps/details?id=com.ordart.app"
-  },
-  {
-    id: 2,
-    type: "app",
-    title: "تطبيق صيدلية سمارت",
-    tech: ["تطبيق صحي", "صيدلية رقمية"],
-    desc: "تطبيق متكامل لتوفير خدمات الصيدلية الذكية والأدوية بسرعة وأمان.",
-    img: "/images/httpsplay.google.comstoreappsdetailsid=com.pharmacysmarts.app.webp",
-    color: "from-green-500 to-emerald-400",
-    link: "https://play.google.com/store/apps/details?id=com.pharmacysmarts.app"
-  },
-  {
-    id: 3,
-    type: "web",
-    title: "منصة إشراق الإعلانية",
-    tech: ["تطوير ويب", "منصة إعلانية"],
-    desc: "موقع إلكتروني احترافي لوكالة إشراق الإعلانية يعرض خدماتهم وأعمالهم بقوة.",
-    img: "/images/httpsishraq-adv.com.webp",
-    color: "from-orange-500 to-red-500",
-    link: "https://ishraq-adv.com/"
-  },
-  {
-    id: 4,
-    type: "web",
-    title: "موقع جنة (Ganna1)",
-    tech: ["متجر إلكتروني", "ويب"],
-    desc: "واجهة متجر إلكتروني حديثة توفر تجربة تسوق ممتازة للعملاء.",
-    img: "/images/httpsganna1.com.webp",
-    color: "from-pink-500 to-rose-400",
-    link: "https://ganna1.com/"
-  },
-  {
-    id: 5,
-    type: "web",
-    title: "منصة ذاكرلي أونلاين",
-    tech: ["منصة تعليمية", "ويب"],
-    desc: "منصة تعليمية متكاملة للتعلم عن بعد توفر حلولاً دراسية للطلاب.",
-    img: "/images/httpszakrly.online.webp",
-    color: "from-purple-500 to-indigo-500",
-    link: "https://zakrly.online/"
-  },
-  {
-    id: 6,
-    type: "web",
-    title: "موقع Smart Pharmacy",
-    tech: ["منصة طبية", "ويب"],
-    desc: "الواجهة الرقمية لمنصة الصيدلية الذكية عبر الويب لتصفح وشراء المنتجات.",
-    img: "/images/httpssmartpharmacy.app.webp",
-    color: "from-teal-400 to-emerald-500",
-    link: "https://smartpharmacy.app"
-  }
-];
+const initialProjects = portfolio.map((p) => ({
+  id: p.id,
+  type: p.cat === "تطبيقات جوال" ? "app" : "web",
+  title: p.title,
+  tech: p.tech || [],
+  desc: p.description,
+  img: p.img,
+  link: p.link,
+}));
 
 export default function SoftwareSection() {
   const sectionRef = useRef(null);
   const [activeFilter, setActiveFilter] = useState("all");
-  const [softwareProjects, setSoftwareProjects] = useState(fallbackProjects);
-
-  useEffect(() => {
-    fetch(`${API_BASE}/api/projects`)
-      .then((res) => res.json())
-      .then((data) => {
-        if (Array.isArray(data) && data.length > 0) {
-          setSoftwareProjects(data);
-        }
-      })
-      .catch(() => {});
-  }, []);
+  const [softwareProjects, setSoftwareProjects] = useState(initialProjects);
 
   useEffect(() => {
     const observer = new IntersectionObserver(

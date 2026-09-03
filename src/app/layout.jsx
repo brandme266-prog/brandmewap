@@ -1,7 +1,7 @@
 import "./globals.css";
 import { LanguageProvider } from "@/context/LanguageContext";
 
-const siteUrl = "https://brandme-api.brandme266.workers.dev";
+const siteUrl = "https://brand1me.com";
 
 export const metadata = {
   metadataBase: new URL(siteUrl),

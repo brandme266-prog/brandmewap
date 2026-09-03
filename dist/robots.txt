@@ -3,4 +3,4 @@ Allow: /
 Disallow: /admin
 Disallow: /api/
 
-Sitemap: https://brandme-api.brandme266.workers.dev/sitemap.xml
+Sitemap: https://brand1me.com/sitemap.xml

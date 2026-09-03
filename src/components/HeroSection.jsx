@@ -57,7 +57,7 @@ export default function HeroSection() {
                 {t.hero.badge}
               </div>
 
-              <h1 className="text-5xl md:text-6xl font-black text-gray-900 leading-[1.1] mb-6">
+              <h1 className="text-4xl md:text-6xl font-black text-gray-900 leading-[1.1] mb-6">
                 {t.hero.title1}
                 <br />
                 <span className="text-gradient">{t.hero.title2}</span>
@@ -105,8 +105,8 @@ export default function HeroSection() {
             </div>
 
             {/* UI Composition */}
-            <div className="relative h-[480px] w-full flex items-center justify-center">
-              <div className="absolute right-4 top-10 w-[340px] bg-white rounded-2xl shadow-xl shadow-gray-200 border border-gray-100 p-6 animate-float z-10">
+            <div className="relative h-[380px] md:h-[480px] w-full flex items-center justify-center scale-90 sm:scale-100 origin-center">
+              <div className="absolute right-0 sm:right-4 top-10 w-[280px] sm:w-[340px] bg-white rounded-2xl shadow-xl shadow-gray-200 border border-gray-100 p-6 animate-float z-10">
                 <div className="flex items-center justify-between mb-6 border-b border-gray-50 pb-4">
                   <div className="w-10 h-10 bg-[#f0f8e8] rounded-full flex items-center justify-center">
                     <svg className="w-5 h-5 text-[#4a9a10]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -134,7 +134,7 @@ export default function HeroSection() {
                 </div>
               </div>
 
-              <div className="absolute left-0 bottom-16 w-56 bg-white rounded-2xl shadow-xl shadow-gray-200 border border-gray-100 p-5 animate-float-slow z-20">
+              <div className="absolute left-0 bottom-4 sm:bottom-16 w-48 sm:w-56 bg-white rounded-2xl shadow-xl shadow-gray-200 border border-gray-100 p-5 animate-float-slow z-20">
                 <p className="text-xs text-gray-500 font-bold mb-1">Growth Rate</p>
                 <div className="flex items-center gap-3">
                   <p className="text-3xl font-black text-gray-900">+320%</p>

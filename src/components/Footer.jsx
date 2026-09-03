@@ -5,7 +5,22 @@ import { useLanguage } from "@/context/LanguageContext";
 export default function Footer() {
   const { t } = useLanguage();
   const year = new Date().getFullYear();
-  const go = (e, href) => { e.preventDefault(); document.querySelector(href)?.scrollIntoView({ behavior: "smooth" }); };
+  const go = (e, href) => {
+    e.preventDefault();
+    if (href === "/" || href === "#home") {
+      if (window.location.pathname === "/") {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      } else {
+        window.location.href = "/";
+      }
+      return;
+    }
+    if (window.location.pathname !== "/") {
+      window.location.href = "/" + (href.startsWith("#") ? href : "");
+      return;
+    }
+    document.querySelector(href)?.scrollIntoView({ behavior: "smooth" });
+  };
 
   const socials = [
     { label: "Instagram", href: "#", icon: (<><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></>) },
@@ -21,7 +36,7 @@ export default function Footer() {
 
           {/* Brand */}
           <div className="lg:col-span-4">
-            <a href="#home" onClick={(e) => go(e, "#home")}>
+            <a href="/" onClick={(e) => go(e, "/")}>
               <img src="/images/logo/logo.webp" alt="BrandMe" width={240} height={80} className="h-20 w-auto mb-6" />
             </a>
             <p className="text-gray-500 text-sm leading-relaxed mb-6">
@@ -55,7 +70,7 @@ export default function Footer() {
             <h3 className="font-black text-gray-900 mb-4">{t.footer.company}</h3>
             <ul className="space-y-3 text-sm text-gray-500">
               <li><a href="#about" onClick={(e) => go(e, "#about")} className="hover:text-[#4a9a10] transition-colors">{t.nav.about}</a></li>
-              <li><a href="#portfolio" onClick={(e) => go(e, "#portfolio")} className="hover:text-[#4a9a10] transition-colors">{t.nav.portfolio}</a></li>
+              <li><a href="/portfolio" onClick={(e) => { e.preventDefault(); window.location.href = "/portfolio"; }} className="hover:text-[#4a9a10] transition-colors">{t.nav.portfolio}</a></li>
               <li><a href="#blog" onClick={(e) => go(e, "#blog")} className="hover:text-[#4a9a10] transition-colors">{t.nav.blog}</a></li>
               <li><a href="#contact" onClick={(e) => go(e, "#contact")} className="hover:text-[#4a9a10] transition-colors">{t.nav.contact}</a></li>
             </ul>

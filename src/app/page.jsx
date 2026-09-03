@@ -36,7 +36,7 @@ export default function Home() {
         title="BrandMe | وكالة تسويق رقمي وبرمجة مواقع وتطبيقات"
         description="BrandMe وكالة رقمية متكاملة متخصصة في التسويق الرقمي، تصميم وبرمجة مواقع الويب، تطبيقات الموبايل، هوية البصمة التجارية. +8 سنوات خبرة، 230+ عميل، 12 دولة."
         image="/images/logo/logo.webp"
-        url="https://brandme-api.brandme266.workers.dev"
+        url="https://brand1me.com"
       />
       <Navbar />
       <main id="main-content">

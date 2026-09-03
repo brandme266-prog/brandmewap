@@ -17,17 +17,21 @@ const categoryLabels = {
   news: "أخبار",
 };
 
+import { initialPosts } from "@/data/posts";
+
 export default function BlogPage() {
-  const [posts, setPosts] = useState([]);
+  const [posts, setPosts] = useState(initialPosts);
   const [activeCategory, setActiveCategory] = useState("all");
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     fetch(`${API_BASE}/api/posts?published=1`)
       .then((res) => res.json())
       .then((data) => {
-        if (Array.isArray(data)) {
-          setPosts(data);
+        if (Array.isArray(data) && data.length > 0) {
+          const apiSlugs = new Set(data.map((p) => p.slug));
+          const uniqueInitial = initialPosts.filter((p) => !apiSlugs.has(p.slug));
+          setPosts([...data, ...uniqueInitial]);
         }
       })
       .catch(() => {})
@@ -43,7 +47,7 @@ export default function BlogPage() {
       <SEO
         title="المدونة | نصائح وأفكار في التسويق الرقمي"
         description="آخر المقالات والأفكار في عالم التسويق الرقمي، تطوير المواقع، التصميم، ونصائح عملية لنجاح تواجدك الرقمي."
-        url="https://brandme-api.brandme266.workers.dev/blog"
+        url="https://brand1me.com/blog"
       />
       <Navbar />
       <main className="pt-24 pb-16 bg-gray-50 min-h-screen" dir="rtl">

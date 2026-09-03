@@ -27,24 +27,41 @@ export default function Navbar() {
 
   const go = useCallback((e, href) => {
     e.preventDefault();
-    if (href.startsWith("/")) {
-      window.location.href = href;
+    
+    if (href === "/" || href === "#home") {
+      if (window.location.pathname === "/") {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      } else {
+        window.location.href = "/";
+      }
+      setMenuOpen(false);
       return;
     }
-    if (window.location.pathname !== "/") {
-      window.location.href = "/" + href;
-      return;
+    
+    if (href.includes("#")) {
+      const hash = href.substring(href.indexOf("#"));
+      if (window.location.pathname === "/") {
+        const el = document.querySelector(hash);
+        if (el) {
+          el.scrollIntoView({ behavior: "smooth" });
+        }
+        setMenuOpen(false);
+        return;
+      } else {
+        window.location.href = "/";
+        return;
+      }
     }
-    const el = document.querySelector(href);
-    if (el) el.scrollIntoView({ behavior: "smooth" });
+    
+    window.location.href = href;
     setMenuOpen(false);
   }, []);
 
   const navItems = [
     { label: t.nav.portfolio, href: "/portfolio" },
+    { label: lang === "ar" ? "خدمات المواقع والمتاجر" : "Web & Stores Services", href: "/online-store" },
+    { label: lang === "ar" ? "خدمات السوشيال ميديا" : "Social Media Services", href: "/#services" },
   ];
-
-  const onlineStoreLabel = lang === "ar" ? "المتجر الإلكتروني" : "Online Store";
 
   return (
     <>
@@ -52,8 +69,8 @@ export default function Navbar() {
       <div className="max-w-6xl mx-auto px-6 flex items-center justify-between">
 
         {/* Logo */}
-        <a href="#home" onClick={(e) => go(e, "#home")} aria-label="BrandMe">
-          <img src="/images/logo/logo.webp" alt="BrandMe" className="h-24 md:h-28 w-auto transition-all" />
+        <a href="/" onClick={(e) => go(e, "/")} aria-label="BrandMe">
+          <img src="/images/logo/logo.webp" alt="BrandMe" className="h-14 sm:h-16 md:h-24 lg:h-28 w-auto transition-all" />
         </a>
 
         {/* Desktop nav */}
@@ -70,12 +87,6 @@ export default function Navbar() {
               {item.label}
             </a>
           ))}
-          <a
-            href="/online-store"
-            className="px-3.5 py-2 text-sm font-semibold rounded-lg transition-colors text-gray-600 hover:text-gray-900"
-          >
-            {onlineStoreLabel}
-          </a>
         </nav>
 
         {/* CTA + Language Toggle */}
@@ -113,10 +124,6 @@ export default function Navbar() {
               {item.label}
             </a>
           ))}
-          <a href="/online-store"
-            className="text-gray-700 font-semibold px-3 py-3 rounded-lg hover:bg-gray-50 transition-colors">
-            {onlineStoreLabel}
-          </a>
           <button
             onClick={toggleLang}
             className="mt-2 text-center bg-gray-100 text-gray-700 px-6 py-3 rounded-full font-bold text-sm"

@@ -19,11 +19,14 @@ const categoryLabels = {
   news: "أخبار",
 };
 
+import { initialPosts } from "@/data/posts";
+
 function BlogPostContent() {
   const searchParams = useSearchParams();
   const slug = searchParams.get("slug");
-  const [post, setPost] = useState(null);
-  const [loading, setLoading] = useState(true);
+  const localPost = initialPosts.find((p) => p.slug === slug);
+  const [post, setPost] = useState(localPost || null);
+  const [loading, setLoading] = useState(!localPost);
 
   useEffect(() => {
     if (!slug) {
@@ -88,7 +91,7 @@ function BlogPostContent() {
         title={post.title}
         description={post.excerpt || post.title}
         image={post.image_url}
-        url={`https://brandme-api.brandme266.workers.dev/blog/post?slug=${slug}`}
+        url={`https://brand1me.com/blog/post?slug=${slug}`}
         type="article"
       />
       <Navbar />
@@ -139,18 +142,37 @@ function BlogPostContent() {
 
           <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-8 md:p-12 mb-8">
             <div
-              className="prose prose-lg prose-arabic max-w-none text-gray-700 leading-relaxed"
+              className="prose prose-lg prose-arabic max-w-none text-gray-700 leading-relaxed space-y-4"
               dangerouslySetInnerHTML={{
                 __html: post.content
-                  ? post.content
-                      .replace(/\n\n/g, "</p><p>")
-                      .replace(/\n/g, "<br/>")
-                      .replace(/^/, "<p>")
-                      .replace(/$/, "</p>")
+                  ? post.content.includes("<")
+                    ? post.content
+                    : post.content
+                        .replace(/\n\n/g, "</p><p>")
+                        .replace(/\n/g, "<br/>")
+                        .replace(/^/, "<p>")
+                        .replace(/$/, "</p>")
                   : "<p>لا يوجد محتوى</p>",
               }}
             />
           </div>
+
+          {/* FAQs Section */}
+          {post.faqs && post.faqs.length > 0 && (
+            <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-8 md:p-10 mb-8">
+              <h3 className="text-2xl font-black text-gray-900 mb-6 flex items-center gap-2">
+                <span className="text-[#4a9a10]">❓</span> الأسئلة الشائعة حول {post.title.split("|")[0]}
+              </h3>
+              <div className="space-y-4 divide-y divide-gray-100">
+                {post.faqs.map((faq, index) => (
+                  <div key={index} className={index > 0 ? "pt-4" : ""}>
+                    <h4 className="text-lg font-bold text-gray-900 mb-2">{faq.question}</h4>
+                    <p className="text-gray-600 leading-relaxed text-sm md:text-base">{faq.answer}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
 
           {post.tags && post.tags.length > 0 && (
             <div className="flex flex-wrap gap-2 mb-8">
@@ -171,11 +193,13 @@ function BlogPostContent() {
             </div>
             <div>
               <p className="font-black text-gray-900">BrandMe Agency</p>
-              <p className="text-sm text-gray-500">وكالة رقمية متكاملة متخصصة في التسويق الرقمي والبرمجة</p>
+              <p className="text-sm text-gray-500">وكالة رقمية متكاملة متخصصة في تطوير البرمجيات وتطبيقات الجوال والتسويق الرقمي في مصر والسعودية</p>
             </div>
           </div>
         </article>
       </main>
+
+      {/* Article Schema */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -184,29 +208,51 @@ function BlogPostContent() {
             "@type": "Article",
             headline: post.title,
             description: post.excerpt || "",
-            image: post.image_url,
+            image: post.image_url ? `https://brand1me.com${post.image_url}` : undefined,
             author: {
               "@type": "Organization",
               name: "BrandMe Agency",
-              url: "https://brandme-api.brandme266.workers.dev",
+              url: "https://brand1me.com",
             },
             publisher: {
               "@type": "Organization",
               name: "BrandMe Agency",
               logo: {
                 "@type": "ImageObject",
-                url: "https://brandme-api.brandme266.workers.dev/images/logo/logo.webp",
+                url: "https://brand1me.com/images/logo/logo.webp",
               },
             },
             datePublished: post.created_at,
-            dateModified: post.updated_at,
+            dateModified: post.updated_at || post.created_at,
             mainEntityOfPage: {
               "@type": "WebPage",
-              "@id": `https://brandme-api.brandme266.workers.dev/blog/post?slug=${slug}`,
+              "@id": `https://brand1me.com/blog/post?slug=${slug}`,
             },
           }),
         }}
       />
+
+      {/* FAQ Schema */}
+      {post.faqs && post.faqs.length > 0 && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "FAQPage",
+              mainEntity: post.faqs.map((f) => ({
+                "@type": "Question",
+                name: f.question,
+                acceptedAnswer: {
+                  "@type": "Answer",
+                  text: f.answer,
+                },
+              })),
+            }),
+          }}
+        />
+      )}
+
       <Footer />
     </>
   );

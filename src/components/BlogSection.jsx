@@ -6,18 +6,22 @@ import { useLanguage } from "@/context/LanguageContext";
 
 const API_BASE = import.meta.env.VITE_API_URL || "https://brandme-api.brandme266.workers.dev";
 
+import { initialPosts } from "@/data/posts";
+
 export default function BlogSection() {
   const { t } = useLanguage();
   const sectionRef = useRef(null);
-  const [posts, setPosts] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const [posts, setPosts] = useState(initialPosts.slice(0, 3));
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     fetch(`${API_BASE}/api/posts?published=1`)
       .then((res) => res.json())
       .then((data) => {
-        if (Array.isArray(data)) {
-          setPosts(data.slice(0, 3));
+        if (Array.isArray(data) && data.length > 0) {
+          const apiSlugs = new Set(data.map((p) => p.slug));
+          const uniqueInitial = initialPosts.filter((p) => !apiSlugs.has(p.slug));
+          setPosts([...data, ...uniqueInitial].slice(0, 3));
         }
       })
       .catch(() => {})

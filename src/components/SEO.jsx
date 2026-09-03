@@ -21,7 +21,7 @@ export default function SEO({ title, description, image, url, type = "website", 
     if (description) {
       setMeta("description", description);
       setMeta("og:description", description, true);
-      setMeta("twitter:description", true);
+      setMeta("twitter:description", description, true);
     }
     if (title) {
       setMeta("og:title", title, true);
