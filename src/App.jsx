@@ -6,6 +6,7 @@ import Blog from './app/blog/page.jsx';
 import OnlineStore from './app/online-store/page.jsx';
 import Portfolio from './app/portfolio/page.jsx';
 import ProjectDetails from './app/portfolio/ProjectDetails.jsx';
+import Hello from './app/hello/page.jsx';
 
 export default function App() {
   return (
@@ -18,6 +19,7 @@ export default function App() {
           <Route path="/online-store" element={<OnlineStore />} />
           <Route path="/portfolio" element={<Portfolio />} />
           <Route path="/portfolio/:slug" element={<ProjectDetails />} />
+          <Route path="/hello" element={<Hello />} />
         </Routes>
       </BrowserRouter>
     </LanguageProvider>
