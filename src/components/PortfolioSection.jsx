@@ -1,104 +1,171 @@
 "use client";
 import { useState, useRef, useEffect } from "react";
-
-
+import { Link } from "react-router-dom";
+import { useLanguage } from "../context/LanguageContext.jsx";
 import { categories, portfolio } from "../data/portfolio.js";
 
 export default function PortfolioSection() {
-  const [activeCat, setActiveCat] = useState("الكل");
+  const { lang } = useLanguage();
+  const isAr = lang === "ar";
+  const [activeCat, setActiveCat] = useState(isAr ? "الكل" : "All");
   const ref = useRef(null);
 
   useEffect(() => {
     const obs = new IntersectionObserver((entries) => {
-      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add("visible"); });
-    }, { threshold: 0.1 });
-    ref.current?.querySelectorAll(".reveal").forEach(el => obs.observe(el));
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add("in"); });
+    }, { threshold: 0.08 });
+    ref.current?.querySelectorAll(".rv").forEach(el => obs.observe(el));
     return () => obs.disconnect();
   }, []);
 
-  const filtered = activeCat === "الكل" ? portfolio : portfolio.filter(p => p.cat === activeCat);
+  const allLabel = isAr ? "الكل" : "All";
+  const categoriesList = [allLabel, ...categories.filter(c => c !== "الكل")];
+
+  const filtered = activeCat === allLabel
+    ? portfolio
+    : portfolio.filter(p => p.tags.includes(activeCat) || p.cat === activeCat);
+
+  const featured = filtered.filter(p => p.tier === 1);
+  const rest = filtered.filter(p => p.tier !== 1);
 
   return (
-    <section id="portfolio" className="py-24 bg-gray-50 border-b border-gray-100" aria-labelledby="portfolio-heading" ref={ref}>
-      <div className="max-w-6xl mx-auto px-6">
+    <section id="portfolio" ref={ref}>
+      {/* Hero Header */}
+      <div className="wrap" style={{ paddingTop: "clamp(3rem, 7vw, 6.5rem)", paddingBottom: "clamp(1.5rem, 3vw, 2.5rem)" }}>
+        <div className="rv" style={{ "--d": "0s" }}>
+          <span className="kick">{isAr ? "الأعمال" : "Work"}</span>
+        </div>
+        <h1 className="h1 rv" style={{ marginTop: "1.4rem", marginBottom: "1.6rem", "--d": "0.08s" }}>
+          {isAr ? (
+            <>
+              <span>نبني الأنظمة</span>
+              <span style={{ color: "#2F6A08" }}>التي تُدار بها الشركات.</span>
+            </>
+          ) : (
+            <>
+              <span>We build the systems</span>
+              <span style={{ color: "#2F6A08" }}>businesses run on.</span>
+            </>
+          )}
+        </h1>
+        <p className="lead rv" style={{ "--d": "0.16s" }}>
+          {isAr
+            ? "منصات مبيعات، أنظمة تشغيل، أسواق إلكترونية، ومتاجر — بالعربية والإنجليزية."
+            : "Sales platforms, operations systems, marketplaces and storefronts — in Arabic and English."}
+        </p>
+      </div>
 
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12 reveal">
-          <div>
-            <span className="section-tag mb-4">أعمالنا</span>
-            <h2 id="portfolio-heading" className="text-3xl md:text-5xl font-black text-gray-900 mt-4 leading-tight">
-              أعمال تتحدث عن نفسها
-            </h2>
+      {/* Featured Work */}
+      {featured.length > 0 && (
+        <div className="wrap sec">
+          <div className="sechead rv" style={{ "--d": "0s" }}>
+            <span className="kick">{isAr ? "الأعمال الأبرز" : "Featured work"}</span>
+            <h2 className="h2">{isAr ? "مشاريع رائدة تعمل فعليًا" : "Flagship projects in production"}</h2>
           </div>
 
-          <div className="flex gap-2 overflow-x-auto pb-2 scrollbar-hide">
-            {categories.map((c) => (
-              <button
-                key={c}
-                onClick={() => setActiveCat(c)}
-                className={`whitespace-nowrap px-5 py-2.5 rounded-full text-sm font-bold transition-all ${
-                  activeCat === c
-                    ? "bg-[#4a9a10] text-white shadow-md shadow-green-100"
-                    : "bg-white text-gray-600 hover:bg-gray-100 border border-gray-200"
-                }`}
-              >
-                {c}
-              </button>
+          <div className="feat">
+            {featured.map((p, i) => (
+              <div key={p.id} className="fcard rv" style={{ "--d": `${0.1 + i * 0.1}s` }}>
+                {/* Media — Browser Frame */}
+                <div className="fcard__media">
+                  <Link to={`/portfolio/${p.slug}`} className="fcard__shot frame">
+                    <div className="frame__bar">
+                      <i /><i /><i />
+                      <span>{p.url || p.slug}</span>
+                    </div>
+                    <div className="frame__win">
+                      <img
+                        src={p.hero}
+                        alt={`${p.title} — ${p.sub}`}
+                        style={{ aspectRatio: "16/10", objectFit: "cover", objectPosition: "top center" }}
+                        loading="lazy"
+                      />
+                    </div>
+                  </Link>
+                  <span className="fcard__n" aria-hidden="true">
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                </div>
+
+                {/* Content */}
+                <div>
+                  <span className="fcard__cat">{p.cat}</span>
+                  <h3>{p.title}</h3>
+                  <p className="fcard__sub">{p.sub}</p>
+                  <p className="fcard__line">{p.description}</p>
+                  <Link to={`/portfolio/${p.slug}`} className="fcard__link">
+                    {isAr ? "عرض المشروع" : "View project"}
+                    <i style={{
+                      display: "block", width: 14, height: 14, background: "currentColor",
+                      WebkitMask: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M3 7.2h8.2L8.1 4.1l1.1-1.1L14.2 8l-5 5-1.1-1.1 3.1-3.1H3z'/%3E%3C/svg%3E") center/contain no-repeat`,
+                      mask: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M3 7.2h8.2L8.1 4.1l1.1-1.1L14.2 8l-5 5-1.1-1.1 3.1-3.1H3z'/%3E%3C/svg%3E") center/contain no-repeat`,
+                    }} />
+                  </Link>
+                </div>
+              </div>
             ))}
           </div>
         </div>
+      )}
 
-        <div className="grid md:grid-cols-2 gap-8">
-          {filtered.map((item, i) => (
-            <div key={item.id} className="reveal group bg-white rounded-2xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-300" style={{ transitionDelay: `${i * 100}ms` }}>
-              <div className="relative h-[320px] w-full overflow-hidden bg-gray-100">
-                <img
-                  src={item.img}
-                  alt={item.title}
-                  
-                  className="object-cover transition-transform duration-700 group-hover:scale-105"
-                  sizes="(max-width: 768px) 100vw, 50vw"
-                />
-              </div>
-              <div className="p-6">
-                <div className="flex items-center justify-between mb-3">
-                  <span className="text-xs font-bold text-[#4a9a10] bg-[#f0f8e8] px-3 py-1 rounded-full">{item.cat}</span>
-                  <span className="text-xs text-gray-500 font-medium">{item.client}</span>
-                </div>
-                <h3 className="text-xl font-black text-gray-900 mb-5 group-hover:text-[#4a9a10] transition-colors">{item.title}</h3>
-                <div className="flex items-center gap-4 pt-5 border-t border-gray-100">
-                  {item.stats && (
-                    <div>
-                      <p className="text-xs text-gray-500 mb-1">{item.stats.label}</p>
-                      <p className="font-black text-gray-900">{item.stats.val}</p>
-                    </div>
-                  )}
-                  <a 
-                    href={`/portfolio/${item.id}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="mr-auto px-4 py-2 rounded-full bg-gray-50 flex items-center gap-2 text-sm font-bold text-gray-600 hover:bg-[#4a9a10] hover:text-white transition-all shadow-sm group-hover:shadow-md"
-                  >
-                    التفاصيل
-                    <svg className="w-4 h-4 -scale-x-100" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" aria-hidden="true">
-                      <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
-                    </svg>
-                  </a>
-                </div>
-              </div>
-            </div>
+      {/* All Projects */}
+      <div className="wrap sec" style={{ borderTop: "1px solid #E3E6DF" }}>
+        <div className="sechead rv" style={{ "--d": "0s" }}>
+          <span className="kick">{isAr ? "كل المشاريع" : "All projects"}</span>
+          <h2 className="h2">{isAr ? `${filtered.length} مشروعًا يعمل فعليًا` : `${filtered.length} systems in production`}</h2>
+        </div>
+
+        {/* Filters */}
+        <div className="filters rv" style={{ "--d": "0.08s" }}>
+          {categoriesList.map((c) => (
+            <button
+              key={c}
+              onClick={() => setActiveCat(c)}
+              className="filt"
+              aria-pressed={activeCat === c}
+            >
+              {c}
+            </button>
           ))}
         </div>
 
-        <div className="mt-14 text-center reveal">
-          <button className="border-2 border-gray-200 text-gray-700 px-8 py-3.5 rounded-full font-bold text-base hover:border-gray-400 transition-colors">
-            عرض المزيد من الأعمال
-          </button>
-        </div>
-
+        {/* Grid */}
+        {rest.length > 0 ? (
+          <div className="grid">
+            {rest.map((p, i) => (
+              <Link
+                key={p.id}
+                to={`/portfolio/${p.slug}`}
+                className="pcard rv"
+                style={{ "--d": `${0.05 + i * 0.05}s`, "--tint": p.tint || "#F2F3EF" }}
+              >
+                <div className={`pcard__img ${p.portrait ? "pcard__img--p" : ""}`} style={{ background: p.tint || "#F2F3EF" }}>
+                  <img
+                    src={p.hero}
+                    alt={`${p.title} — ${p.description}`}
+                    loading="lazy"
+                  />
+                </div>
+                <div className="pcard__b">
+                  <span className="pcard__cat">{p.cat}</span>
+                  <h3>{p.title}</h3>
+                  <p>{p.description}</p>
+                  <span className="pcard__go">
+                    {isAr ? "عرض التفاصيل" : "View details"}
+                    <i style={{
+                      display: "block", width: 13, height: 13, background: "currentColor",
+                      WebkitMask: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M3 7.2h8.2L8.1 4.1l1.1-1.1L14.2 8l-5 5-1.1-1.1 3.1-3.1H3z'/%3E%3C/svg%3E") center/contain no-repeat`,
+                      mask: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M3 7.2h8.2L8.1 4.1l1.1-1.1L14.2 8l-5 5-1.1-1.1 3.1-3.1H3z'/%3E%3C/svg%3E") center/contain no-repeat`,
+                    }} />
+                  </span>
+                </div>
+              </Link>
+            ))}
+          </div>
+        ) : (
+          <p className="empty">{isAr ? "لا يوجد شيء في هذه الفئة." : "Nothing in this category."}</p>
+        )}
       </div>
-
-      {/* Project Details are now a separate route */}
-
     </section>
   );
 }

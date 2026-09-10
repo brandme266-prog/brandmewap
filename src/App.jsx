@@ -17,7 +17,7 @@ export default function App() {
           <Route path="/blog" element={<Blog />} />
           <Route path="/online-store" element={<OnlineStore />} />
           <Route path="/portfolio" element={<Portfolio />} />
-          <Route path="/portfolio/:id" element={<ProjectDetails />} />
+          <Route path="/portfolio/:slug" element={<ProjectDetails />} />
         </Routes>
       </BrowserRouter>
     </LanguageProvider>
